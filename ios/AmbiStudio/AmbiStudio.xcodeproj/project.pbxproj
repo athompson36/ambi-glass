@@ -35,6 +35,7 @@
 		49ED2FAC2EBE9C5B0000CC31 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F912EBE9C5B0000CC31 /* RecordView.swift */; };
 		49ED2FAD2EBE9C5B0000CC31 /* RecorderEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F622EBE9C5B0000CC31 /* RecorderEngine.swift */; };
 		49ED2FAE2EBE9C5B0000CC31 /* CalibrationCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F8E2EBE9C5B0000CC31 /* CalibrationCurveView.swift */; };
+		49ED2FD02EBE9C5B0000CC31 /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FD12EBE9C5B0000CC31 /* WaveformView.swift */; };
 		49ED2FAF2EBE9C5B0000CC31 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F922EBE9C5B0000CC31 /* SettingsView.swift */; };
 		49ED2FB02EBE9C5B0000CC31 /* CalibrationCurveTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F832EBE9C5B0000CC31 /* CalibrationCurveTest.swift */; };
 		49ED2FB12EBE9C5B0000CC31 /* MicCalLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F762EBE9C5B0000CC31 /* MicCalLoader.swift */; };
@@ -126,6 +127,7 @@
 		49ED2F8B2EBE9C5B0000CC31 /* Transcoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transcoder.swift; sourceTree = "<group>"; };
 		49ED2F8D2EBE9C5B0000CC31 /* BatchTranscodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchTranscodeView.swift; sourceTree = "<group>"; };
 		49ED2F8E2EBE9C5B0000CC31 /* CalibrationCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationCurveView.swift; sourceTree = "<group>"; };
+		49ED2FD12EBE9C5B0000CC31 /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
 		49ED2F8F2EBE9C5B0000CC31 /* CalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationView.swift; sourceTree = "<group>"; };
 		49ED2F902EBE9C5B0000CC31 /* MeasureIRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureIRView.swift; sourceTree = "<group>"; };
 		49ED2F912EBE9C5B0000CC31 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				49ED2F722EBE9C5B0000CC31 /* DOCS */,
 				49ED2F782EBE9C5B0000CC31 /* DSP */,
 				49ED2F7B2EBE9C5B0000CC31 /* Resources */,
+				49ED2FCE2EBE9C5B0000CC31 /* CalibrationMics */,
 				49ED2F812EBE9C5B0000CC31 /* Scripts */,
 				49ED2F872EBE9C5B0000CC31 /* Tests */,
 				49ED2F8A2EBE9C5B0000CC31 /* Theme */,
@@ -282,14 +285,13 @@
 			children = (
 				49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */,
 			);
-			path = "CalibrationMics";
+			path = "Resources/CalibrationMics";
 			sourceTree = "<group>";
 		};
 		49ED2F7B2EBE9C5B0000CC31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				49ED2F7A2EBE9C5B0000CC31 /* Presets */,
-				49ED2FCE2EBE9C5B0000CC31 /* CalibrationMics */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -341,6 +343,7 @@
 				49ED2F8D2EBE9C5B0000CC31 /* BatchTranscodeView.swift */,
 				49ED2F8E2EBE9C5B0000CC31 /* CalibrationCurveView.swift */,
 				49ED2F8F2EBE9C5B0000CC31 /* CalibrationView.swift */,
+				49ED2FD12EBE9C5B0000CC31 /* WaveformView.swift */,
 				49ED2F902EBE9C5B0000CC31 /* MeasureIRView.swift */,
 				49ED2F912EBE9C5B0000CC31 /* RecordView.swift */,
 				49ED2F922EBE9C5B0000CC31 /* SettingsView.swift */,
@@ -519,6 +522,7 @@
 				49ED2FAD2EBE9C5B0000CC31 /* RecorderEngine.swift in Sources */,
 				49ED2FAE2EBE9C5B0000CC31 /* CalibrationCurveView.swift in Sources */,
 				49ED2FAF2EBE9C5B0000CC31 /* SettingsView.swift in Sources */,
+				49ED2FD02EBE9C5B0000CC31 /* WaveformView.swift in Sources */,
 				49ED2FB12EBE9C5B0000CC31 /* MicCalLoader.swift in Sources */,
 				49ED2FB22EBE9C5B0000CC31 /* ThemeManager.swift in Sources */,
 				49ED2FB32EBE9C5B0000CC31 /* BatchTranscodeView.swift in Sources */,

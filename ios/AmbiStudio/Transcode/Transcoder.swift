@@ -7,13 +7,141 @@ final class Transcoder: ObservableObject {
     private var fourMono: [URL] = []
     @Published var importedFiles: [URL] = []
     @Published var importStatus: String = ""
+    @Published var waveformCache: [URL: [Float]] = [:]
     private let dsp = AmbisonicsDSP()
+    
+    // Public method to extract channel number (for validation in UI)
+    func extractChannelNumber(from url: URL) -> Int? {
+        let filename = url.deletingPathExtension().lastPathComponent.lowercased()
+        
+        // Try to find -1, -2, -3, -4 pattern
+        if filename.contains("-1") {
+            return 1
+        } else if filename.contains("-2") {
+            return 2
+        } else if filename.contains("-3") {
+            return 3
+        } else if filename.contains("-4") {
+            return 4
+        }
+        
+        // Try alternative patterns: _1, _2, _3, _4 or .1, .2, .3, .4
+        if filename.contains("_1") || filename.hasSuffix(".1") {
+            return 1
+        } else if filename.contains("_2") || filename.hasSuffix(".2") {
+            return 2
+        } else if filename.contains("_3") || filename.hasSuffix(".3") {
+            return 3
+        } else if filename.contains("_4") || filename.hasSuffix(".4") {
+            return 4
+        }
+        
+        return nil
+    }
 
     func handleFourMono(urls: [URL]) {
-        fourMono = urls
-        importedFiles = urls
-        importStatus = "Imported \(urls.count) files"
-        print("Queued 4 mono files: \(urls.map{ $0.lastPathComponent })")
+        // Sort files by channel number extracted from filename (-1, -2, -3, -4)
+        let sorted = sortFilesByChannel(urls)
+        fourMono = sorted
+        importedFiles = sorted
+        importStatus = "Imported \(sorted.count) files (sorted by channel)"
+        print("Queued 4 mono files: \(sorted.map{ $0.lastPathComponent })")
+        
+        // Load waveforms for all files
+        loadWaveformsForFiles(sorted)
+    }
+    
+    // Load and cache waveforms for all files
+    private func loadWaveformsForFiles(_ urls: [URL]) {
+        for url in urls {
+            // Skip if already cached
+            if waveformCache[url] != nil {
+                continue
+            }
+            
+            Task {
+                await loadWaveformForFile(url)
+            }
+        }
+    }
+    
+    // Load waveform for a single file
+    private func loadWaveformForFile(_ url: URL) async {
+        // Start accessing security-scoped resource
+        let hasAccess = url.startAccessingSecurityScopedResource()
+        defer {
+            if hasAccess {
+                url.stopAccessingSecurityScopedResource()
+            }
+        }
+        
+        do {
+            let file = try AVAudioFile(forReading: url)
+            let format = file.processingFormat
+            let frameCount = AVAudioFrameCount(file.length)
+            
+            guard let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: frameCount) else {
+                return
+            }
+            
+            try file.read(into: buffer)
+            
+            // Downsample for visualization (take every Nth sample)
+            let channelData = buffer.floatChannelData?[0]
+            guard let channelData = channelData else {
+                return
+            }
+            
+            let sampleCount = Int(buffer.frameLength)
+            let downsampleFactor = max(1, sampleCount / 1000) // Show max 1000 points
+            var downsampled: [Float] = []
+            
+            for i in stride(from: 0, to: sampleCount, by: downsampleFactor) {
+                downsampled.append(channelData[i])
+            }
+            
+            await MainActor.run {
+                waveformCache[url] = downsampled
+            }
+        } catch {
+            print("Error loading waveform for \(url.lastPathComponent): \(error.localizedDescription)")
+        }
+    }
+    
+    // Get cached waveform data for a URL
+    func getWaveformData(for url: URL) -> [Float]? {
+        return waveformCache[url]
+    }
+    
+    // Sort files by channel number
+    private func sortFilesByChannel(_ urls: [URL]) -> [URL] {
+        var filesWithChannels: [(url: URL, channel: Int)] = []
+        var filesWithoutChannels: [URL] = []
+        
+        for url in urls {
+            if let channel = extractChannelNumber(from: url) {
+                filesWithChannels.append((url: url, channel: channel))
+            } else {
+                filesWithoutChannels.append(url)
+            }
+        }
+        
+        // Sort by channel number
+        filesWithChannels.sort { $0.channel < $1.channel }
+        
+        // Combine sorted files with channel numbers and files without
+        let sorted = filesWithChannels.map { $0.url } + filesWithoutChannels
+        
+        // Validate we have exactly 4 files and channels 1-4 are present
+        if filesWithChannels.count == 4 {
+            let channels = Set(filesWithChannels.map { $0.channel })
+            if channels == Set([1, 2, 3, 4]) {
+                return sorted
+            }
+        }
+        
+        // If we don't have proper channel numbers, return as-is (will be sorted alphabetically)
+        return sorted.isEmpty ? urls : sorted
     }
 
     // Load four mono files, align length, pack into buffer

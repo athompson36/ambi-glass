@@ -1,7 +1,6 @@
 import SwiftUI
 import AVFoundation
 import Combine
-import UniformTypeIdentifiers
 
 struct RecordView: View {
     @EnvironmentObject var devices: AudioDeviceManager
@@ -11,8 +10,6 @@ struct RecordView: View {
 
     @State private var isRecording = false
     @State private var meters: [CGFloat] = [0,0,0,0]
-    @State private var showingImporter = false
-    @State private var importError: String = ""
 
     var body: some View {
         ScrollView {
@@ -64,28 +61,9 @@ struct RecordView: View {
                             if isRecording { recorder.stop() } else { try? recorder.start() }
                             isRecording.toggle()
                         }.buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
-                        
-                        Button("Import") {
-                            showingImporter = true
-                        }
-                        .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
 
                         Spacer()
                         Toggle("Safety A‑format", isOn: $recorder.safetyRecord)
-                    }
-                    
-                    if !transcoder.importedFiles.isEmpty {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("Imported Files:").font(.footnote).bold()
-                            ForEach(Array(transcoder.importedFiles.enumerated()), id: \.offset) { index, url in
-                                Text("\(index + 1). \(url.lastPathComponent)").font(.caption).opacity(0.8)
-                            }
-                        }
-                        .padding(.top, 8)
-                    }
-                    
-                    if !importError.isEmpty {
-                        Text(importError).foregroundColor(.red).font(.footnote)
                     }
                 }
             }
@@ -103,33 +81,5 @@ struct RecordView: View {
         }
         .padding()
         .onReceive(recorder.meterPublisher) { meters = $0 }
-        .fileImporter(
-            isPresented: $showingImporter,
-            allowedContentTypes: [.audio],
-            allowsMultipleSelection: true
-        ) { result in
-            handleImport(result: result)
-        }
-    }
-    
-    private func handleImport(result: Result<[URL], Error>) {
-        importError = ""
-        switch result {
-        case .success(let urls):
-            // Filter for WAV files
-            let wavFiles = urls.filter { $0.pathExtension.lowercased() == "wav" }
-            
-            guard wavFiles.count == 4 else {
-                importError = "Please select exactly 4 WAV files. Found \(wavFiles.count) WAV file(s)."
-                return
-            }
-            
-            // Validate they are mono files (basic check - could be enhanced)
-            transcoder.handleFourMono(urls: wavFiles)
-            importError = ""
-            
-        case .failure(let error):
-            importError = "Import failed: \(error.localizedDescription)"
-        }
     }
 }

@@ -5,6 +5,7 @@ struct MeasureIRView: View {
     @EnvironmentObject var irkit: IRKit
     @EnvironmentObject var theme: ThemeManager
     @EnvironmentObject var devices: AudioDeviceManager
+    @EnvironmentObject var irMeasurementEngine: IRMeasurementEngine
     @StateObject private var dsp = AmbisonicsDSP()
     @State private var sweepSeconds: Double = 8
     @State private var f0: Double = 20
@@ -15,8 +16,8 @@ struct MeasureIRView: View {
     @State private var selectedInputDeviceID: String = "default"
     @State private var measuredIRs: [[Float]]? = nil
     @State private var exportStatus: String = ""
-    @State private var isMeasuring = false
     @State private var isExporting = false
+    @State private var useLiveCapture = true
     
     var body: some View {
         ScrollView {
@@ -97,23 +98,21 @@ struct MeasureIRView: View {
                         Stepper(value: $f0, in: 10...200) { Text("Start F0: \(Int(f0)) Hz") }
                         Stepper(value: $f1, in: 1000...48000) { Text("End F1: \(Int(f1)) Hz") }
                     }
-                    Button("Generate Sweep & Measure") {
-                        isMeasuring = true
-                        exportStatus = "Measuring..."
-                        DispatchQueue.global(qos: .userInitiated).async {
-                            let irs = irkit.runSweep(seconds: sweepSeconds, f0: f0, f1: f1)
-                            DispatchQueue.main.async {
-                                measuredIRs = irs
-                                isMeasuring = false
-                                exportStatus = "IR measured: \(irs.first?.count ?? 0) samples"
-                            }
+                    
+                    Toggle("Use Live Capture", isOn: $useLiveCapture)
+                    
+                    Button(useLiveCapture ? "Measure IR (Live)" : "Generate Sweep & Measure (Demo)") {
+                        if useLiveCapture {
+                            measureIRLive()
+                        } else {
+                            measureIRDemo()
                         }
                     }
                     .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
-                    .disabled(isMeasuring)
+                    .disabled(irMeasurementEngine.isMeasuring)
                     
-                    if isMeasuring {
-                        ProgressIndicator(progress: 0.7, message: "Generating sweep and deconvolving...")
+                    if irMeasurementEngine.isMeasuring {
+                        ProgressIndicator(progress: irMeasurementEngine.progress, message: irMeasurementEngine.status)
                     }
                     
                     if measuredIRs != nil {
@@ -221,6 +220,72 @@ struct MeasureIRView: View {
                     exportStatus = "Export error: \(error.localizedDescription)"
                     isExporting = false
                 }
+            }
+        }
+    }
+    
+    private func measureIRLive() {
+        exportStatus = "Starting measurement..."
+        Task {
+            do {
+                // Generate sweep
+                let sampleRate = 48000.0
+                let sweep = irkit.generateESS(sr: sampleRate, seconds: sweepSeconds, f0: f0, f1: f1)
+                
+                // Convert selected channels to arrays
+                let inputChannelsArray = Array(selectedInputChannels).sorted()
+                let outputChannelsArray = Array(selectedOutputChannels).sorted()
+                
+                guard !inputChannelsArray.isEmpty else {
+                    await MainActor.run {
+                        exportStatus = "Error: No input channels selected"
+                    }
+                    return
+                }
+                
+                guard !outputChannelsArray.isEmpty else {
+                    await MainActor.run {
+                        exportStatus = "Error: No output channels selected"
+                    }
+                    return
+                }
+                
+                // Measure IR with live capture
+                let recorded = try await irMeasurementEngine.measureIR(
+                    sweep: sweep,
+                    inputChannels: inputChannelsArray,
+                    outputChannels: outputChannelsArray,
+                    sampleRate: sampleRate
+                )
+                
+                // Deconvolve to get IRs
+                let irs = irkit.runSweepLive(
+                    recorded: recorded,
+                    seconds: sweepSeconds,
+                    f0: f0,
+                    f1: f1,
+                    sampleRate: sampleRate
+                )
+                
+                await MainActor.run {
+                    measuredIRs = irs
+                    exportStatus = "IR measured: \(irs.first?.count ?? 0) samples"
+                }
+            } catch {
+                await MainActor.run {
+                    exportStatus = "Measurement error: \(error.localizedDescription)"
+                }
+            }
+        }
+    }
+    
+    private func measureIRDemo() {
+        exportStatus = "Measuring (demo mode)..."
+        Task {
+            let irs = irkit.runSweep(seconds: sweepSeconds, f0: f0, f1: f1)
+            await MainActor.run {
+                measuredIRs = irs
+                exportStatus = "IR measured (demo): \(irs.first?.count ?? 0) samples"
             }
         }
     }

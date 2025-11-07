@@ -41,6 +41,11 @@
 		49ED2FB32EBE9C5B0000CC31 /* BatchTranscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F8D2EBE9C5B0000CC31 /* BatchTranscodeView.swift */; };
 		49ED2FB42EBE9C5B0000CC31 /* AudioDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F612EBE9C5B0000CC31 /* AudioDeviceManager.swift */; };
 		49ED2FBE2EBE9C5B0000CC31 /* RecordingFolderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FBF2EBE9C5B0000CC31 /* RecordingFolderManager.swift */; };
+		49ED2FC02EBE9C5B0000CC31 /* IRMeasurementEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC12EBE9C5B0000CC31 /* IRMeasurementEngine.swift */; };
+		49ED2FC22EBE9C5B0000CC31 /* DualMicRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC32EBE9C5B0000CC31 /* DualMicRecorder.swift */; };
+		49ED2FC42EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC52EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift */; };
+		49ED2FC62EBE9C5B0000CC31 /* CalibrationFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC72EBE9C5B0000CC31 /* CalibrationFileManager.swift */; };
+		49ED2FC82EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC92EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift */; };
 		49ED2FB52EBE9C5B0000CC31 /* LiquidGlassTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F882EBE9C5B0000CC31 /* LiquidGlassTheme.swift */; };
 		49ED2FB62EBE9C5B0000CC31 /* CalibrationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F742EBE9C5B0000CC31 /* CalibrationKit.swift */; };
 		49ED2FB72EBE9C5B0000CC31 /* Transcoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F8B2EBE9C5B0000CC31 /* Transcoder.swift */; };
@@ -78,6 +83,11 @@
 		49ED2F612EBE9C5B0000CC31 /* AudioDeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceManager.swift; sourceTree = "<group>"; };
 		49ED2F622EBE9C5B0000CC31 /* RecorderEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderEngine.swift; sourceTree = "<group>"; };
 		49ED2FBF2EBE9C5B0000CC31 /* RecordingFolderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingFolderManager.swift; sourceTree = "<group>"; };
+		49ED2FC12EBE9C5B0000CC31 /* IRMeasurementEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRMeasurementEngine.swift; sourceTree = "<group>"; };
+		49ED2FC32EBE9C5B0000CC31 /* DualMicRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualMicRecorder.swift; sourceTree = "<group>"; };
+		49ED2FC52EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyResponseAnalyzer.swift; sourceTree = "<group>"; };
+		49ED2FC72EBE9C5B0000CC31 /* CalibrationFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationFileManager.swift; sourceTree = "<group>"; };
+		49ED2FC92EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbiAliceCalibrationView.swift; sourceTree = "<group>"; };
 		49ED2F642EBE9C5B0000CC31 /* MCP_RULES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = MCP_RULES.md; sourceTree = "<group>"; };
 		49ED2F652EBE9C5B0000CC31 /* prompts.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = prompts.md; sourceTree = "<group>"; };
 		49ED2F662EBE9C5B0000CC31 /* tasks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tasks.json; sourceTree = "<group>"; };
@@ -207,6 +217,8 @@
 				49ED2F612EBE9C5B0000CC31 /* AudioDeviceManager.swift */,
 				49ED2F622EBE9C5B0000CC31 /* RecorderEngine.swift */,
 				49ED2FBF2EBE9C5B0000CC31 /* RecordingFolderManager.swift */,
+				49ED2FC12EBE9C5B0000CC31 /* IRMeasurementEngine.swift */,
+				49ED2FC32EBE9C5B0000CC31 /* DualMicRecorder.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -246,6 +258,8 @@
 				49ED2F752EBE9C5B0000CC31 /* IRKit.swift */,
 				49ED2F762EBE9C5B0000CC31 /* MicCalLoader.swift */,
 				49ED2F772EBE9C5B0000CC31 /* Profiles.swift */,
+				49ED2FC52EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift */,
+				49ED2FC72EBE9C5B0000CC31 /* CalibrationFileManager.swift */,
 			);
 			path = DSP;
 			sourceTree = "<group>";
@@ -316,6 +330,7 @@
 				49ED2F902EBE9C5B0000CC31 /* MeasureIRView.swift */,
 				49ED2F912EBE9C5B0000CC31 /* RecordView.swift */,
 				49ED2F922EBE9C5B0000CC31 /* SettingsView.swift */,
+				49ED2FC92EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -494,6 +509,11 @@
 				49ED2FB32EBE9C5B0000CC31 /* BatchTranscodeView.swift in Sources */,
 				49ED2FB42EBE9C5B0000CC31 /* AudioDeviceManager.swift in Sources */,
 				49ED2FBE2EBE9C5B0000CC31 /* RecordingFolderManager.swift in Sources */,
+				49ED2FC02EBE9C5B0000CC31 /* IRMeasurementEngine.swift in Sources */,
+				49ED2FC22EBE9C5B0000CC31 /* DualMicRecorder.swift in Sources */,
+				49ED2FC42EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift in Sources */,
+				49ED2FC62EBE9C5B0000CC31 /* CalibrationFileManager.swift in Sources */,
+				49ED2FC82EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift in Sources */,
 				49ED2FB52EBE9C5B0000CC31 /* LiquidGlassTheme.swift in Sources */,
 				49ED2FB62EBE9C5B0000CC31 /* CalibrationKit.swift in Sources */,
 				49ED2FB72EBE9C5B0000CC31 /* Transcoder.swift in Sources */,

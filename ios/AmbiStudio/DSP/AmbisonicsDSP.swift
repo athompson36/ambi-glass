@@ -24,22 +24,23 @@ final class AmbisonicsDSP: ObservableObject {
 
     private func loadDefaultMicProfile() {
         // Try to load Resources/Presets/AmbiAlice_v1.json from the app bundle; fall back to identity
-        let candidates: [(name: String, ext: String, subdir: String?)] = [
-            ("AmbiAlice_v1", "json", "Presets"),
-            ("AmbiAlice_v1", "json", nil)
-        ]
-        for c in candidates {
-            if let url = Bundle.main.url(forResource: c.name, withExtension: c.ext, subdirectory: c.subdir) {
-                if let data = try? Data(contentsOf: url), let prof = try? JSONDecoder().decode(MicProfileLite.self, from: data) {
-                    if let arr = prof.matrix, arr.count == 16 {
-                        matrix.m = arr
-                    }
-                    if let trims = prof.capsuleTrims_dB, trims.count == 4 {
-                        capsuleTrims_dB = trims.map { Float($0) }
-                    }
-                    return
-                }
-            }
+        // Use guard to safely access Bundle.main in test environment
+        guard let bundle = Bundle.main.url(forResource: "AmbiAlice_v1", withExtension: "json", subdirectory: "Presets") ??
+                            Bundle.main.url(forResource: "AmbiAlice_v1", withExtension: "json") else {
+            // Fall back to identity matrix (already set as default)
+            return
+        }
+        
+        guard let data = try? Data(contentsOf: bundle),
+              let prof = try? JSONDecoder().decode(MicProfileLite.self, from: data) else {
+            return
+        }
+        
+        if let arr = prof.matrix, arr.count == 16 {
+            matrix.m = arr
+        }
+        if let trims = prof.capsuleTrims_dB, trims.count == 4 {
+            capsuleTrims_dB = trims.map { Float($0) }
         }
     }
 

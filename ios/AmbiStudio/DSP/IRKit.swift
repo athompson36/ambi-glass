@@ -113,6 +113,7 @@ final class IRKit: ObservableObject {
     }
 
     // Process sweep and return IRs for all channels
+    // This is a legacy method that uses mock data - use runSweepLive() for real measurements
     func runSweep(seconds: Double, f0: Double, f1: Double) -> [[Float]] {
         let sr = 48000.0
         let sweep = generateESS(sr: sr, seconds: seconds, f0: f0, f1: f1)
@@ -139,6 +140,27 @@ final class IRKit: ObservableObject {
             }
             irs.append(ir)
         }
+        return irs
+    }
+    
+    // Run sweep with live audio capture
+    func runSweepLive(
+        recorded: [[Float]],
+        seconds: Double,
+        f0: Double,
+        f1: Double,
+        sampleRate: Double = 48000.0
+    ) -> [[Float]] {
+        let sweep = generateESS(sr: sampleRate, seconds: seconds, f0: f0, f1: f1)
+        let inv = inverseESS(sweep: sweep, sr: sampleRate, seconds: seconds, f0: f0, f1: f1)
+        
+        // Deconvolve each recorded channel
+        var irs: [[Float]] = []
+        for channelRecorded in recorded {
+            let ir = deconvolve(recorded: channelRecorded, inverse: inv)
+            irs.append(ir)
+        }
+        
         return irs
     }
     

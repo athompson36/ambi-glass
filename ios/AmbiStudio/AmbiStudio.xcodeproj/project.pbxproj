@@ -21,6 +21,7 @@
 		49ED2F9F2EBE9C5B0000CC31 /* CALIBRATION.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F692EBE9C5B0000CC31 /* CALIBRATION.md */; };
 		49ED2FA02EBE9C5B0000CC31 /* prompts.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F652EBE9C5B0000CC31 /* prompts.md */; };
 		49ED2FA12EBE9C5B0000CC31 /* AmbiAlice_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F792EBE9C5B0000CC31 /* AmbiAlice_v1.json */; };
+		49ED2FCC2EBE9C5B0000CC31 /* Behringer_ECM8000.cal in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */; };
 		49ED2FA22EBE9C5B0000CC31 /* UI_GUIDE.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F702EBE9C5B0000CC31 /* UI_GUIDE.md */; };
 		49ED2FA32EBE9C5B0000CC31 /* format.sh in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F7D2EBE9C5B0000CC31 /* format.sh */; };
 		49ED2FA42EBE9C5B0000CC31 /* IR_GUIDE.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F6D2EBE9C5B0000CC31 /* IR_GUIDE.md */; };
@@ -45,6 +46,7 @@
 		49ED2FC22EBE9C5B0000CC31 /* DualMicRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC32EBE9C5B0000CC31 /* DualMicRecorder.swift */; };
 		49ED2FC42EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC52EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift */; };
 		49ED2FC62EBE9C5B0000CC31 /* CalibrationFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC72EBE9C5B0000CC31 /* CalibrationFileManager.swift */; };
+		49ED2FCA2EBE9C5B0000CC31 /* CalibrationMicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FCB2EBE9C5B0000CC31 /* CalibrationMicManager.swift */; };
 		49ED2FC82EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC92EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift */; };
 		49ED2FB52EBE9C5B0000CC31 /* LiquidGlassTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F882EBE9C5B0000CC31 /* LiquidGlassTheme.swift */; };
 		49ED2FB62EBE9C5B0000CC31 /* CalibrationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F742EBE9C5B0000CC31 /* CalibrationKit.swift */; };
@@ -87,6 +89,7 @@
 		49ED2FC32EBE9C5B0000CC31 /* DualMicRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualMicRecorder.swift; sourceTree = "<group>"; };
 		49ED2FC52EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyResponseAnalyzer.swift; sourceTree = "<group>"; };
 		49ED2FC72EBE9C5B0000CC31 /* CalibrationFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationFileManager.swift; sourceTree = "<group>"; };
+		49ED2FCB2EBE9C5B0000CC31 /* CalibrationMicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationMicManager.swift; sourceTree = "<group>"; };
 		49ED2FC92EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbiAliceCalibrationView.swift; sourceTree = "<group>"; };
 		49ED2F642EBE9C5B0000CC31 /* MCP_RULES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = MCP_RULES.md; sourceTree = "<group>"; };
 		49ED2F652EBE9C5B0000CC31 /* prompts.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = prompts.md; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 		49ED2F762EBE9C5B0000CC31 /* MicCalLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicCalLoader.swift; sourceTree = "<group>"; };
 		49ED2F772EBE9C5B0000CC31 /* Profiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profiles.swift; sourceTree = "<group>"; };
 		49ED2F792EBE9C5B0000CC31 /* AmbiAlice_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AmbiAlice_v1.json; sourceTree = "<group>"; };
+		49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */ = {isa = PBXFileReference; lastKnownFileType = text; path = Behringer_ECM8000.cal; sourceTree = "<group>"; };
 		49ED2F7C2EBE9C5B0000CC31 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		49ED2F7D2EBE9C5B0000CC31 /* format.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = format.sh; sourceTree = "<group>"; };
 		49ED2F7E2EBE9C5B0000CC31 /* prepare_xcode_project.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = prepare_xcode_project.sh; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 				49ED2F772EBE9C5B0000CC31 /* Profiles.swift */,
 				49ED2FC52EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift */,
 				49ED2FC72EBE9C5B0000CC31 /* CalibrationFileManager.swift */,
+				49ED2FCB2EBE9C5B0000CC31 /* CalibrationMicManager.swift */,
 			);
 			path = DSP;
 			sourceTree = "<group>";
@@ -272,10 +277,19 @@
 			path = Presets;
 			sourceTree = "<group>";
 		};
+		49ED2FCE2EBE9C5B0000CC31 /* CalibrationMics */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */,
+			);
+			path = "CalibrationMics";
+			sourceTree = "<group>";
+		};
 		49ED2F7B2EBE9C5B0000CC31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				49ED2F7A2EBE9C5B0000CC31 /* Presets */,
+				49ED2FCE2EBE9C5B0000CC31 /* CalibrationMics */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -469,6 +483,7 @@
 				49ED2F9F2EBE9C5B0000CC31 /* CALIBRATION.md in Resources */,
 				49ED2FA02EBE9C5B0000CC31 /* prompts.md in Resources */,
 				49ED2FA12EBE9C5B0000CC31 /* AmbiAlice_v1.json in Resources */,
+				49ED2FCC2EBE9C5B0000CC31 /* Behringer_ECM8000.cal in Resources */,
 				49ED2FA22EBE9C5B0000CC31 /* UI_GUIDE.md in Resources */,
 				49ED2FA32EBE9C5B0000CC31 /* format.sh in Resources */,
 				49ED2FA42EBE9C5B0000CC31 /* IR_GUIDE.md in Resources */,
@@ -513,6 +528,7 @@
 				49ED2FC22EBE9C5B0000CC31 /* DualMicRecorder.swift in Sources */,
 				49ED2FC42EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift in Sources */,
 				49ED2FC62EBE9C5B0000CC31 /* CalibrationFileManager.swift in Sources */,
+				49ED2FCA2EBE9C5B0000CC31 /* CalibrationMicManager.swift in Sources */,
 				49ED2FC82EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift in Sources */,
 				49ED2FB52EBE9C5B0000CC31 /* LiquidGlassTheme.swift in Sources */,
 				49ED2FB62EBE9C5B0000CC31 /* CalibrationKit.swift in Sources */,

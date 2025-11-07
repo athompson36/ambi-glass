@@ -5,11 +5,15 @@ import Combine
 
 final class Transcoder: ObservableObject {
     private var fourMono: [URL] = []
+    @Published var importedFiles: [URL] = []
+    @Published var importStatus: String = ""
     private let dsp = AmbisonicsDSP()
 
     func handleFourMono(urls: [URL]) {
         fourMono = urls
-        print("Queued 4 mono files: \\(urls.map{ $0.lastPathComponent })")
+        importedFiles = urls
+        importStatus = "Imported \(urls.count) files"
+        print("Queued 4 mono files: \(urls.map{ $0.lastPathComponent })")
     }
 
     // Load four mono files, align length, pack into buffer
@@ -67,8 +71,8 @@ final class Transcoder: ObservableObject {
             let aBuf = try loadFourMono()
             // A->B
             let bBuf = dsp.processAtoB(aBuffer: aBuf) // W,Y,Z,X (AmbiX ordering in our DSP)
-            let base = directory ?? FileManager.default.temporaryDirectory
-            let out = base.appendingPathComponent("AmbiX_\\(Int(Date().timeIntervalSince1970)).wav")
+            let base = directory ?? RecordingFolderManager.shared.getFolder()
+            let out = base.appendingPathComponent("AmbiX_\(Int(Date().timeIntervalSince1970)).wav")
             try write4Ch(url: out, buffer: bBuf)
             print("AmbiX written: \\(out.path)")
         } catch {
@@ -106,8 +110,8 @@ final class Transcoder: ObservableObject {
                 Zf[i] = Zsn[i] * sXYZ
             }
 
-            let base = directory ?? FileManager.default.temporaryDirectory
-            let out = base.appendingPathComponent("FuMa_\\(Int(Date().timeIntervalSince1970)).wav")
+            let base = directory ?? RecordingFolderManager.shared.getFolder()
+            let out = base.appendingPathComponent("FuMa_\(Int(Date().timeIntervalSince1970)).wav")
             try write4Ch(url: out, buffer: fuma)
             print("FuMa written: \\(out.path)")
         } catch {
@@ -136,8 +140,8 @@ final class Transcoder: ObservableObject {
                 R[i] = W[i] - X[i]
             }
             
-            let base = directory ?? FileManager.default.temporaryDirectory
-            let out = base.appendingPathComponent("Stereo_\\(Int(Date().timeIntervalSince1970)).wav")
+            let base = directory ?? RecordingFolderManager.shared.getFolder()
+            let out = base.appendingPathComponent("Stereo_\(Int(Date().timeIntervalSince1970)).wav")
             try write2Ch(url: out, buffer: stereo)
             print("Stereo written: \\(out.path)")
         } catch {
@@ -178,8 +182,8 @@ final class Transcoder: ObservableObject {
                 Rs[i] = (W[i] - Y[i]) / sqrt2
             }
             
-            let base = directory ?? FileManager.default.temporaryDirectory
-            let out = base.appendingPathComponent("5.1_\\(Int(Date().timeIntervalSince1970)).wav")
+            let base = directory ?? RecordingFolderManager.shared.getFolder()
+            let out = base.appendingPathComponent("5.1_\(Int(Date().timeIntervalSince1970)).wav")
             try write6Ch(url: out, buffer: out51)
             print("5.1 written: \\(out.path)")
         } catch {
@@ -224,8 +228,8 @@ final class Transcoder: ObservableObject {
                 Rb[i] = (W[i] - Z[i]) / sqrt2
             }
             
-            let base = directory ?? FileManager.default.temporaryDirectory
-            let out = base.appendingPathComponent("7.1_\\(Int(Date().timeIntervalSince1970)).wav")
+            let base = directory ?? RecordingFolderManager.shared.getFolder()
+            let out = base.appendingPathComponent("7.1_\(Int(Date().timeIntervalSince1970)).wav")
             try write8Ch(url: out, buffer: out71)
             print("7.1 written: \\(out.path)")
         } catch {

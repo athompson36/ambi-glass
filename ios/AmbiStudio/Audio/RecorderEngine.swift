@@ -10,6 +10,7 @@ final class RecorderEngine: ObservableObject {
     private let dsp = AmbisonicsDSP()
 
     @Published var selectedDeviceID: String = "default"
+    @Published var selectedInputChannels: [Int] = [0, 1, 2, 3] // Default: first 4 channels
     @Published var safetyRecord: Bool = true
 
     private var aWriter: AVAudioFile?
@@ -37,14 +38,14 @@ final class RecorderEngine: ObservableObject {
             dsp.interfaceGains_dB = iface.channelGains_dB.map { Float($0) }
         }
 
-        let tmp = FileManager.default.temporaryDirectory
+        let recordingFolder = RecordingFolderManager.shared.getFolder()
         if safetyRecord {
-            aWriter = try? AVAudioFile(forWriting: tmp.appendingPathComponent("Aformat_\(Date().timeIntervalSince1970).wav"), settings: fmt.settings)
+            aWriter = try? AVAudioFile(forWriting: recordingFolder.appendingPathComponent("Aformat_\(Date().timeIntervalSince1970).wav"), settings: fmt.settings)
         } else {
             aWriter = nil
         }
         let bfmt = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: sampleRate, channels: 4, interleaved: false)!
-        bWriter = try? AVAudioFile(forWriting: tmp.appendingPathComponent("BformatAmbiX_\(Date().timeIntervalSince1970).wav"), settings: bfmt.settings)
+        bWriter = try? AVAudioFile(forWriting: recordingFolder.appendingPathComponent("BformatAmbiX_\(Date().timeIntervalSince1970).wav"), settings: bfmt.settings)
 
         input.installTap(onBus: 0, bufferSize: bufferFrames, format: hw) { [weak self] buf, _ in
             guard let self else { return }
@@ -72,11 +73,19 @@ final class RecorderEngine: ObservableObject {
         let fmt = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: buffer.format.sampleRate, channels: 4, interleaved: false)!
         let out = AVAudioPCMBuffer(pcmFormat: fmt, frameCapacity: frameCount)!
         out.frameLength = frameCount
-        for ch in 0..<4 {
-            let src = buffer.floatChannelData![min(Int(ch), Int(buffer.format.channelCount)-1)]
-            let dst = out.floatChannelData![Int(ch)]
+        
+        // Map selected input channels to output channels
+        let selectedChannels = selectedInputChannels.prefix(4)
+        let availableChannels = Int(buffer.format.channelCount)
+        
+        for (outCh, inCh) in selectedChannels.enumerated() {
+            // Clamp input channel to available range
+            let srcCh = min(max(0, inCh), availableChannels - 1)
+            let src = buffer.floatChannelData![srcCh]
+            let dst = out.floatChannelData![outCh]
             dst.assign(from: src, count: Int(frameCount))
         }
+        
         return out
     }
 

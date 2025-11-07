@@ -12,12 +12,26 @@ struct BatchTranscodeView: View {
             GlassCard {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("Batch Transcode").font(.title2).bold()
-                    Text("Drop **4 mono WAV** files recorded from Ambi-Alice (A-format).")
+                    Text("Drop **4 mono WAV** files recorded from Ambi-Alice (A-format), or import from Record tab.")
+                    
+                    // Show imported files from Record tab
+                    if !transcoder.importedFiles.isEmpty {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Imported Files (from Record tab):").font(.footnote).bold()
+                            ForEach(Array(transcoder.importedFiles.enumerated()), id: \.offset) { index, url in
+                                Text("\(index + 1). \(url.lastPathComponent)").font(.caption).opacity(0.8)
+                            }
+                        }
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 12)
+                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8))
+                    }
+                    
                     DropArea { urls in
                         validateAndQueue(urls)
                     }
                     if !dropped.isEmpty {
-                        Text("Queued: \\(dropped.map { $0.lastPathComponent }.joined(separator: \", \"))").font(.footnote)
+                        Text("Queued: \(dropped.map { $0.lastPathComponent }.joined(separator: ", "))").font(.footnote)
                     }
                     if !errorText.isEmpty {
                         Text(errorText).foregroundColor(.red).font(.footnote)

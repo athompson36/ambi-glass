@@ -3,10 +3,12 @@ import UniformTypeIdentifiers
 
 struct SettingsView: View {
     @EnvironmentObject var theme: ThemeManager
+    @StateObject private var folderManager = RecordingFolderManager.shared
     @State private var useMicCal = true
     @EnvironmentObject var micCal: MicCalLoader
 
     @State private var showingImporter = false
+    @State private var showingFolderPicker = false
 
     var body: some View {
         ScrollView {
@@ -14,6 +16,36 @@ struct SettingsView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("Settings").font(.title2).bold()
                     Toggle("High Contrast", isOn: $theme.highContrast)
+                    
+                    Divider().opacity(0.4)
+                    
+                    // Recording Folder Selection
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Recording Folder").font(.headline)
+                        HStack {
+                            Button("Select Folder") {
+                                showingFolderPicker = true
+                            }
+                            .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
+                            
+                            Spacer()
+                            
+                            VStack(alignment: .trailing, spacing: 4) {
+                                Text("Current: \(folderManager.folderName)").font(.footnote).opacity(0.8)
+                                if let folder = folderManager.recordingFolder {
+                                    Text(folder.path).font(.caption).opacity(0.6).lineLimit(2)
+                                }
+                            }
+                        }
+                        
+                        Button("Reset to Default") {
+                            folderManager.clearFolder()
+                        }
+                        .buttonStyle(.borderless)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    }
+                    
                     Divider().opacity(0.4)
                     Toggle("Apply Mic Calibration", isOn: $useMicCal)
                     HStack {
@@ -48,7 +80,21 @@ struct SettingsView: View {
             case .success(let urls):
                 if let url = urls.first { micCal.load(from: url) }
             case .failure(let err):
-                print("Importer error: \\(err)")
+                print("Importer error: \(err)")
+            }
+        }
+        .fileImporter(
+            isPresented: $showingFolderPicker,
+            allowedContentTypes: [.folder],
+            allowsMultipleSelection: false
+        ) { result in
+            switch result {
+            case .success(let urls):
+                if let url = urls.first {
+                    folderManager.setFolder(url)
+                }
+            case .failure(let error):
+                print("Folder selection error: \(error.localizedDescription)")
             }
         }
     }

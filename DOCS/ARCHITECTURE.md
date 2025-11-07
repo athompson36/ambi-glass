@@ -11,10 +11,10 @@ AmbiGlass is a SwiftUI universal app targeting macOS/iPadOS for 4‑channel **Am
   - `RecorderEngine.swift` — 4‑ch capture, writers, peak meters.
 - **DSP/** — math & transforms
   - `AmbisonicsDSP.swift` — A‑format → FOA B‑format (AmbiX/FuMa) matrix.
-  - `IRKit.swift` — ESS sweep generator and (to be implemented) deconvolution.
-  - `CalibrationKit.swift` — loopback latency & gain measurement scaffolding.
+  - `IRKit.swift` — ESS sweep generator and FFT-based deconvolution with windowing.
+  - `CalibrationKit.swift` — loopback latency & gain measurement with auto-apply.
 - **Transcode/** — imports/exports
-  - `Transcoder.swift` — drag‑drop of 4 mono WAVs, AmbiX export stub.
+  - `Transcoder.swift` — drag‑drop of 4 mono WAVs, multi-format export (AmbiX, FuMa, Stereo, 5.1, 7.1, Binaural).
 - **Theme/** — Liquid Glass UI tokens and components.
 - **UI/** — feature views (Record, Measure IR, Transcode, Calibration, Settings).
 - **Resources/Presets/** — mic profiles and defaults (e.g., `AmbiAlice_v1.json`).
@@ -28,7 +28,7 @@ AmbiGlass is a SwiftUI universal app targeting macOS/iPadOS for 4‑channel **Am
   -> (future) Binaural monitor
 ```
 
-**IR measurement:** `IRKit` generates ESS → routes to selected outputs → captures inputs → FFT deconvolution (planned) → exports IRs (mono/stereo/FOA).
+**IR measurement:** `IRKit` generates ESS → routes to selected outputs → captures inputs → FFT deconvolution with peak alignment and windowing → exports IRs (mono/stereo/true-stereo/FOA).
 
 ## Profiles
 

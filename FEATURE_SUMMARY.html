@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AmbiGlass Feature Summary</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #0066cc;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #0066cc;
+            margin-top: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #333;
+            margin-top: 20px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "SF Mono", Monaco, monospace;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        ul, ol {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 30px 0;
+        }
+        @media print {
+            body { margin: 0; padding: 15px; }
+            h1 { page-break-after: avoid; }
+            h2 { page-break-after: avoid; }
+        }
+    </style>
+</head>
+<body>
+<p><h1>AmbiGlass — Feature Summary</h1>
+</p><p>
+<strong>Professional Ambisonic Capture & Processing Application</strong>
+</p><p>
+<hr>
+</p><p>
+<h2>Overview</h2>
+</p><p>
+AmbiGlass is a professional-grade macOS/iPadOS application designed for 4-channel Ambi-Alice microphone capture, real-time ambisonic conversion, impulse response measurement, and multi-format audio export. Built with SwiftUI and optimized for audio professionals, it provides a complete workflow for ambisonic recording and processing.
+</p><p>
+<hr>
+</p><p>
+<h2>Core Features</h2>
+</p><p>
+<h3>1. Multi-Channel Audio Capture</h3>
+</p><p>
+<strong>Real-Time Recording</strong>
+- 4-channel simultaneous capture from Ambi-Alice microphones
+- Support for 4+ channel audio interfaces
+- Real-time peak metering for all channels
+- Visual feedback with cyan-to-purple gradient meters
+- Safety A-format recording option
+</p><p>
+<strong>Device Management</strong>
+- Automatic device enumeration
+- macOS: Full device list with AVCaptureDevice
+- iPadOS: AVAudioSession device selection
+- Real-time device switching
+- Channel count validation
+</p><p>
+<strong>Recording Options</strong>
+- Configurable sample rates (default: 48kHz)
+- Adjustable buffer sizes
+- Safety A-format toggle (saves raw A-format alongside B-format)
+- Automatic file naming with timestamps
+</p><p>
+<hr>
+</p><p>
+<h3>2. Real-Time Ambisonic Conversion</h3>
+</p><p>
+<strong>A→B Format Conversion</strong>
+- Real-time A-format to FOA B-format conversion
+- Matrix-based transformation with mic profile support
+- Energy-preserving algorithms
+- Low-latency processing optimized with Accelerate framework
+</p><p>
+<strong>Mic Profile Support</strong>
+- Load custom 4×4 conversion matrices
+- JSON-based profile format
+- Default profiles included (AmbiAlice_v1)
+- Per-capsule trim adjustments
+- Frequency response calibration curves
+</p><p>
+<strong>Orientation Control</strong>
+- Yaw/pitch/roll rotation transforms
+- Real-time orientation adjustment
+- Euler angle rotation (ZYX order)
+- Preserves omnidirectional (W) channel
+</p><p>
+<strong>Gain Compensation</strong>
+- Per-capsule trim application
+- Interface channel gain offsets
+- Mic calibration curve interpolation
+- Automatic gain compensation during recording
+</p><p>
+<hr>
+</p><p>
+<h3>3. Calibration System</h3>
+</p><p>
+<strong>Loopback Calibration</strong>
+- Automatic I/O latency measurement
+- Cross-correlation-based delay estimation
+- Per-channel gain offset calculation
+- Frequency response analysis (optional)
+</p><p>
+<strong>Profile Management</strong>
+- InterfaceProfile persistence
+- Automatic profile application
+- Device-specific calibration storage
+- Timestamp-based profile versioning
+</p><p>
+<strong>Calibration Workflow</strong>
+- Simple one-button calibration
+- Visual progress indicators
+- Results display (latency, gains)
+- Auto-apply to future recordings
+</p><p>
+<hr>
+</p><p>
+<h3>4. Impulse Response Measurement</h3>
+</p><p>
+<strong>Exponential Sine Sweep (ESS)</strong>
+- Configurable sweep length (2-30 seconds)
+- Adjustable frequency range (20-20,000 Hz typical)
+- High-quality sweep generation
+- Inverse filter calculation
+</p><p>
+<strong>Deconvolution Processing</strong>
+- FFT-based deconvolution
+- Peak detection and alignment
+- Windowing and normalization
+- Exponential decay windowing
+- Noise reduction
+</p><p>
+<strong>IR Export Formats</strong>
+- Mono IR (single channel)
+- Stereo IR (2-channel)
+- True-stereo IR (4-channel A-format)
+- FOA IR (B-format, AmbiX W,Y,Z,X)
+</p><p>
+<strong>Output Routing</strong>
+- Multi-channel output selection
+- Configurable output routing
+- Support for 1-8 output channels
+- Visual channel selection interface
+</p><p>
+<hr>
+</p><p>
+<h3>5. Multi-Format Export</h3>
+</p><p>
+<strong>Ambisonic Formats</strong>
+- <strong>AmbiX</strong>: B-format (W,Y,Z,X) ACN/SN3D normalization
+- <strong>FuMa</strong>: B-format (W,X,Y,Z) with FuMa scaling
+- Proper channel ordering and normalization
+</p><p>
+<strong>Surround Formats</strong>
+- <strong>Stereo</strong>: Simple L/R decode from FOA
+- <strong>5.1</strong>: 6-channel surround (L, R, C, LFE, Ls, Rs)
+- <strong>7.1</strong>: 8-channel surround (adds Lb, Rb)
+- FOA-based decoding algorithms
+</p><p>
+<strong>Binaural Export</strong>
+- Placeholder for HRTF-based binaural rendering
+- Future: SOFA file support
+- Future: Real-time binaural preview
+</p><p>
+<strong>Batch Processing</strong>
+- Drag & drop 4 mono WAV files
+- Automatic file validation
+- Error handling and user feedback
+- Multiple export format support
+</p><p>
+<hr>
+</p><p>
+<h3>6. User Interface</h3>
+</p><p>
+<strong>Liquid Glass Theme</strong>
+- Modern glassmorphism design
+- Dark theme optimized for audio work
+- High-contrast accessibility mode
+- Customizable visual elements
+</p><p>
+<strong>Main Views</strong>
+- <strong>Record</strong>: Device selection, recording controls, meters
+- <strong>Measure IR</strong>: Sweep configuration, IR measurement, export
+- <strong>Transcode</strong>: Drag & drop, format selection, batch export
+- <strong>Calibrate</strong>: Loopback test, profile management
+- <strong>Settings</strong>: Preferences, mic calibration, theme options
+</p><p>
+<strong>User Experience</strong>
+- Progress indicators for long operations
+- Real-time status updates
+- Error messages and user feedback
+- Intuitive tab-based navigation
+</p><p>
+<strong>Accessibility</strong>
+- High-contrast mode
+- Keyboard navigation support
+- VoiceOver compatibility
+- Adjustable UI elements
+</p><p>
+<hr>
+</p><p>
+<h3>7. Mic Calibration</h3>
+</p><p>
+<strong>Frequency Response Loading</strong>
+- Support for .txt, .csv, .cal files
+- Automatic frequency/gain parsing
+- Log-frequency interpolation
+- Visual curve preview
+</p><p>
+<strong>Calibration Preview</strong>
+- Interactive frequency response graph
+- Log-frequency axis display
+- Gain range visualization
+- Statistics display (range, points, gain)
+</p><p>
+<strong>Application</strong>
+- Automatic calibration application
+- Frequency-dependent gain correction
+- Smooth interpolation between points
+- Optional per-capsule calibration
+</p><p>
+<hr>
+</p><p>
+<h3>8. Advanced Features</h3>
+</p><p>
+<strong>Profile System</strong>
+- MicProfile: Matrix, orientation, trims
+- InterfaceProfile: Latency, gains, device info
+- Persistent storage in Application Support
+- JSON-based format
+</p><p>
+<strong>Error Handling</strong>
+- Comprehensive error checking
+- User-friendly error messages
+- Graceful degradation
+- File I/O error handling
+</p><p>
+<strong>Performance</strong>
+- Optimized with Accelerate framework
+- Real-time processing capability
+- Efficient memory management
+- Low-latency audio pipeline
+</p><p>
+<hr>
+</p><p>
+<h2>Technical Specifications</h2>
+</p><p>
+<h3>Platform Support</h3>
+- <strong>macOS</strong>: 14.0+ (Sonoma and later)
+- <strong>iPadOS</strong>: 17.0+ (iOS 17 and later)
+- Universal binary support
+</p><p>
+<h3>Audio Specifications</h3>
+- <strong>Sample Rates</strong>: 44.1kHz, 48kHz, 96kHz (configurable)
+- <strong>Bit Depth</strong>: 32-bit float (internal), 16/24/32-bit export
+- <strong>Channels</strong>: 4-channel input (minimum), multi-channel output
+- <strong>Formats</strong>: WAV (PCM), interleaved and non-interleaved
+</p><p>
+<h3>Processing</h3>
+- <strong>DSP Framework</strong>: Accelerate (vDSP, FFT)
+- <strong>Audio Framework</strong>: AVFoundation, AVAudioEngine
+- <strong>UI Framework</strong>: SwiftUI
+- <strong>Language</strong>: Swift 5.9+
+</p><p>
+<h3>File Formats</h3>
+- <strong>Input</strong>: Mono WAV files (4-channel A-format)
+- <strong>Output</strong>: WAV (AmbiX, FuMa, Stereo, 5.1, 7.1, Binaural)
+- <strong>Profiles</strong>: JSON (mic profiles, interface profiles)
+- <strong>Calibration</strong>: Text/CSV (frequency response curves)
+</p><p>
+<hr>
+</p><p>
+<h2>Use Cases</h2>
+</p><p>
+<h3>Professional Audio Production</h3>
+- Ambisonic field recording
+- Spatial audio capture
+- 360° audio production
+- VR/AR audio content creation
+</p><p>
+<h3>Acoustic Measurement</h3>
+- Room impulse response measurement
+- Acoustic analysis
+- Reverb time measurement
+- Frequency response analysis
+</p><p>
+<h3>Post-Production</h3>
+- Ambisonic format conversion
+- Surround sound mixing
+- Binaural rendering preparation
+- Multi-format distribution
+</p><p>
+<h3>Research & Development</h3>
+- Ambisonic algorithm testing
+- Acoustic research
+- Audio format development
+- Spatial audio experimentation
+</p><p>
+<hr>
+</p><p>
+<h2>Workflow Examples</h2>
+</p><p>
+<h3>Recording Session</h3>
+1. Connect 4-channel audio interface
+2. Run loopback calibration
+3. Load mic profile
+4. Configure recording settings
+5. Start recording with real-time A→B conversion
+6. Monitor levels with peak meters
+7. Stop and review files
+</p><p>
+<h3>IR Measurement</h3>
+1. Connect output to loudspeaker
+2. Connect input (mic or interface)
+3. Configure sweep parameters
+4. Select output channels
+5. Generate sweep and measure
+6. Review deconvolved IR
+7. Export in desired format
+</p><p>
+<h3>Format Conversion</h3>
+1. Drag 4 mono WAV files (A-format)
+2. Select export format
+3. Process and export
+4. Verify output files
+</p><p>
+<hr>
+</p><p>
+<h2>Performance Characteristics</h2>
+</p><p>
+<h3>Latency</h3>
+- <strong>Recording Latency</strong>: < 10ms (typical)
+- <strong>Processing Latency</strong>: < 1ms (A→B conversion)
+- <strong>Calibration Accuracy</strong>: ±1ms latency measurement
+</p><p>
+<h3>Throughput</h3>
+- <strong>Real-Time Processing</strong>: Up to 192kHz sample rate
+- <strong>Batch Export</strong>: Multiple files in parallel
+- <strong>IR Deconvolution</strong>: Optimized FFT processing
+</p><p>
+<h3>Resource Usage</h3>
+- <strong>CPU</strong>: Optimized for efficiency
+- <strong>Memory</strong>: Efficient buffer management
+- <strong>Disk</strong>: Configurable file locations
+</p><p>
+<hr>
+</p><p>
+<h2>Quality Assurance</h2>
+</p><p>
+<h3>Testing</h3>
+- Unit tests for DSP functions
+- Integration tests for audio pipeline
+- Calibration accuracy tests
+- Format conversion validation
+</p><p>
+<h3>Validation</h3>
+- Energy preservation verification
+- Channel ordering validation
+- Format compliance checking
+- File integrity verification
+</p><p>
+<hr>
+</p><p>
+<h2>Future Roadmap</h2>
+</p><p>
+<h3>Planned Features</h3>
+- Real-time binaural monitoring
+- SOFA HRTF file support
+- Advanced IR windowing options
+- Batch processing improvements
+- Preset management UI
+- Export history tracking
+</p><p>
+<h3>Enhancements</h3>
+- Performance optimizations
+- Additional export formats
+- Advanced calibration options
+- Cloud sync capabilities
+- Plugin support
+</p><p>
+<hr>
+</p><p>
+<h2>Support & Documentation</h2>
+</p><p>
+<h3>Documentation</h3>
+- Comprehensive user guides
+- Technical documentation
+- API reference
+- Video tutorials (planned)
+</p><p>
+<h3>Resources</h3>
+- Example mic profiles
+- Calibration templates
+- Workflow guides
+- Best practices
+</p><p>
+<hr>
+</p><p>
+<h2>System Requirements</h2>
+</p><p>
+<h3>Minimum Requirements</h3>
+- macOS 14.0+ or iPadOS 17.0+
+- 4+ channel audio interface
+- 2GB RAM
+- 500MB disk space
+</p><p>
+<h3>Recommended Requirements</h3>
+- macOS 15.0+ or iPadOS 18.0+
+- Professional audio interface
+- 8GB+ RAM
+- SSD storage
+</p><p>
+<hr>
+</p><p>
+<h2>Licensing</h2>
+</p><p>
+See LICENSE file for details.
+</p><p>
+<hr>
+</p><p>
+<strong>AmbiGlass</strong> — Professional Ambisonic Capture & Processing
+</p><p>
+<em>Version 1.0 | November 2025</em>
+</p><p></p>
+</body></html>

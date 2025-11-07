@@ -1,0 +1,60 @@
+AmbiGlass Xcode Project Structure
+==================================
+
+App/
+├── AmbiGlassApp.swift
+└── ContentView.swift
+
+Audio/
+├── AudioDeviceManager.swift
+└── RecorderEngine.swift
+
+DSP/
+├── AmbisonicsDSP.swift
+├── IRKit.swift
+├── CalibrationKit.swift
+├── MicCalLoader.swift
+└── Profiles.swift
+
+Transcode/
+└── Transcoder.swift
+
+UI/
+├── RecordView.swift
+├── MeasureIRView.swift
+├── BatchTranscodeView.swift
+├── CalibrationView.swift
+├── SettingsView.swift
+└── CalibrationCurveView.swift
+
+Theme/
+├── LiquidGlassTheme.swift
+└── ThemeManager.swift
+
+Resources/
+└── Presets/
+    └── AmbiAlice_v1.json
+
+Tests/
+├── AmbisonicsDSPTests.swift
+├── IRDeconvolutionTests.swift
+├── CalibrationTests.swift
+├── CalibrationCurveTest.swift
+└── TestRunner.swift
+
+Scripts/
+├── build.sh
+├── format.sh
+├── test.sh
+└── setup_xcode.sh
+
+DOCS/
+├── XCODE_SETUP.md
+├── ARCHITECTURE.md
+├── DSP_NOTES.md
+├── IR_GUIDE.md
+├── FORMATS.md
+├── CALIBRATION.md
+├── MIC_PROFILES.md
+├── UI_GUIDE.md
+└── TEST_PLAN.md

@@ -5,10 +5,15 @@ import Accelerate
 final class Transcoder: ObservableObject {
     private var fourMono: [URL] = []
     private let dsp = AmbisonicsDSP()
+    
+    @Published var lastError: String? = nil
+    @Published var exportStatus: String? = nil
 
     func handleFourMono(urls: [URL]) {
         fourMono = urls
-        print("Queued 4 mono files: \\(urls.map{ $0.lastPathComponent })")
+        lastError = nil
+        exportStatus = "Loaded \(urls.count) file(s)"
+        print("Queued 4 mono files: \(urls.map{ $0.lastPathComponent })")
     }
 
     // Load four mono files, align length, pack into buffer
@@ -67,11 +72,16 @@ final class Transcoder: ObservableObject {
             // A->B
             let bBuf = dsp.processAtoB(aBuffer: aBuf) // W,Y,Z,X (AmbiX ordering in our DSP)
             let base = directory ?? FileManager.default.temporaryDirectory
-            let out = base.appendingPathComponent("AmbiX_\\(Int(Date().timeIntervalSince1970)).wav")
+            let out = base.appendingPathComponent("AmbiX_\(Int(Date().timeIntervalSince1970)).wav")
             try write4Ch(url: out, buffer: bBuf)
-            print("AmbiX written: \\(out.path)")
+            exportStatus = "AmbiX exported: \(out.lastPathComponent)"
+            lastError = nil
+            print("AmbiX written: \(out.path)")
         } catch {
-            print("AmbiX export error: \\(error)")
+            let errorMsg = "AmbiX export error: \(error.localizedDescription)"
+            lastError = errorMsg
+            exportStatus = nil
+            print(errorMsg)
         }
     }
 
@@ -106,11 +116,16 @@ final class Transcoder: ObservableObject {
             }
 
             let base = directory ?? FileManager.default.temporaryDirectory
-            let out = base.appendingPathComponent("FuMa_\\(Int(Date().timeIntervalSince1970)).wav")
+            let out = base.appendingPathComponent("FuMa_\(Int(Date().timeIntervalSince1970)).wav")
             try write4Ch(url: out, buffer: fuma)
-            print("FuMa written: \\(out.path)")
+            exportStatus = "FuMa exported: \(out.lastPathComponent)"
+            lastError = nil
+            print("FuMa written: \(out.path)")
         } catch {
-            print("FuMa export error: \\(error)")
+            let errorMsg = "FuMa export error: \(error.localizedDescription)"
+            lastError = errorMsg
+            exportStatus = nil
+            print(errorMsg)
         }
     }
     
@@ -136,11 +151,16 @@ final class Transcoder: ObservableObject {
             }
             
             let base = directory ?? FileManager.default.temporaryDirectory
-            let out = base.appendingPathComponent("Stereo_\\(Int(Date().timeIntervalSince1970)).wav")
+            let out = base.appendingPathComponent("Stereo_\(Int(Date().timeIntervalSince1970)).wav")
             try write2Ch(url: out, buffer: stereo)
-            print("Stereo written: \\(out.path)")
+            exportStatus = "Stereo exported: \(out.lastPathComponent)"
+            lastError = nil
+            print("Stereo written: \(out.path)")
         } catch {
-            print("Stereo export error: \\(error)")
+            let errorMsg = "Stereo export error: \(error.localizedDescription)"
+            lastError = errorMsg
+            exportStatus = nil
+            print(errorMsg)
         }
     }
     
@@ -178,11 +198,16 @@ final class Transcoder: ObservableObject {
             }
             
             let base = directory ?? FileManager.default.temporaryDirectory
-            let out = base.appendingPathComponent("5.1_\\(Int(Date().timeIntervalSince1970)).wav")
+            let out = base.appendingPathComponent("5.1_\(Int(Date().timeIntervalSince1970)).wav")
             try write6Ch(url: out, buffer: out51)
-            print("5.1 written: \\(out.path)")
+            exportStatus = "5.1 exported: \(out.lastPathComponent)"
+            lastError = nil
+            print("5.1 written: \(out.path)")
         } catch {
-            print("5.1 export error: \\(error)")
+            let errorMsg = "5.1 export error: \(error.localizedDescription)"
+            lastError = errorMsg
+            exportStatus = nil
+            print(errorMsg)
         }
     }
     
@@ -224,11 +249,16 @@ final class Transcoder: ObservableObject {
             }
             
             let base = directory ?? FileManager.default.temporaryDirectory
-            let out = base.appendingPathComponent("7.1_\\(Int(Date().timeIntervalSince1970)).wav")
+            let out = base.appendingPathComponent("7.1_\(Int(Date().timeIntervalSince1970)).wav")
             try write8Ch(url: out, buffer: out71)
-            print("7.1 written: \\(out.path)")
+            exportStatus = "7.1 exported: \(out.lastPathComponent)"
+            lastError = nil
+            print("7.1 written: \(out.path)")
         } catch {
-            print("7.1 export error: \\(error)")
+            let errorMsg = "7.1 export error: \(error.localizedDescription)"
+            lastError = errorMsg
+            exportStatus = nil
+            print(errorMsg)
         }
     }
     
@@ -236,6 +266,10 @@ final class Transcoder: ObservableObject {
     public func exportBinaural(to directory: URL? = nil) {
         // For now, use simple stereo decode. Future: load HRTF and convolve
         exportStereo(to: directory)
+        // Note: exportStereo handles its own error reporting via lastError/exportStatus
+        if exportStatus == nil {
+            exportStatus = "Binaural exported (using stereo decode - HRTF not yet implemented)"
+        }
         print("Binaural export: using simple stereo decode (HRTF not yet implemented)")
     }
     

@@ -9,6 +9,8 @@ struct RecordView: View {
 
     @State private var isRecording = false
     @State private var meters: [CGFloat] = [0,0,0,0]
+    @State private var errorMessage: String = ""
+    @State private var showError = false
 
     var body: some View {
         ScrollView {
@@ -24,12 +26,40 @@ struct RecordView: View {
 
                     HStack {
                         Button(isRecording ? "Stop" : "Record") {
-                            if isRecording { recorder.stop() } else { try? recorder.start() }
-                            isRecording.toggle()
-                        }.buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
+                            if isRecording {
+                                recorder.stop()
+                                isRecording = false
+                            } else {
+                                do {
+                                    try recorder.start()
+                                    isRecording = true
+                                    errorMessage = ""
+                                } catch {
+                                    errorMessage = "Failed to start recording: \(error.localizedDescription)"
+                                    showError = true
+                                    isRecording = false
+                                }
+                            }
+                        }
+                        .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
+                        .disabled(isRecording && devices.inputDevices.isEmpty)
 
                         Spacer()
                         Toggle("Safety A‑format", isOn: $recorder.safetyRecord)
+                    }
+                    
+                    if showError && !errorMessage.isEmpty {
+                        Text(errorMessage)
+                            .font(.footnote)
+                            .foregroundColor(.red)
+                            .padding(.top, 4)
+                    }
+                    
+                    if devices.inputDevices.isEmpty {
+                        Text("No input devices found. Please connect a 4+ channel audio interface.")
+                            .font(.footnote)
+                            .foregroundColor(.orange)
+                            .padding(.top, 4)
                     }
                 }
             }

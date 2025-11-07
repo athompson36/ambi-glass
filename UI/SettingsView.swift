@@ -33,9 +33,9 @@ struct SettingsView: View {
                         
                         // Stats
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Range: \\(String(format: "%.0f", cal.freqs.first ?? 0)) - \\(String(format: "%.0f", cal.freqs.last ?? 0)) Hz").font(.caption)
-                            Text("Gain: \\(String(format: "%.2f", cal.gains.min() ?? 0)) to \\(String(format: "%.2f", cal.gains.max() ?? 0)) dB").font(.caption)
-                            Text("Points: \\(cal.freqs.count)").font(.caption)
+                            Text("Range: \(String(format: "%.0f", cal.freqs.first ?? 0)) - \(String(format: "%.0f", cal.freqs.last ?? 0)) Hz").font(.caption)
+                            Text("Gain: \(String(format: "%.2f", cal.gains.min() ?? 0)) to \(String(format: "%.2f", cal.gains.max() ?? 0)) dB").font(.caption)
+                            Text("Points: \(cal.freqs.count)").font(.caption)
                         }
                         .opacity(0.7)
                     }

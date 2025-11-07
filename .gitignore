@@ -43,3 +43,72 @@ Pods/
 *.aiff
 *.m4a
 *.mp3
+!Resources/**/*.wav
+!Resources/**/*.aiff
+
+# Calibration profiles (generated)
+*.calibration
+*.profile
+
+# IR measurements (generated)
+*.ir
+*.impulse
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.vscode/
+.idea/
+*.swo
+*~
+
+# Build artifacts
+*.o
+*.a
+*.dylib
+*.framework
+*.app
+*.xctest
+
+# Test results
+*.xcresult
+*.xcresult/
+
+# Temporary files
+*.tmp
+*.log
+*.cache

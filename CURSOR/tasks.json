@@ -1,0 +1,38 @@
+{
+  "tasks": [
+    {
+      "id": "wire-ambix-export",
+      "title": "Wire A\u2192B and AmbiX export",
+      "files": [
+        "DSP/AmbisonicsDSP.swift",
+        "Transcode/Transcoder.swift"
+      ],
+      "acceptance": [
+        "AmbiX 4\u2011ch WAV created with W,Y,Z,X order",
+        "Energy preservation within 0.5 dB for pink noise"
+      ]
+    },
+    {
+      "id": "ess-deconvolution",
+      "title": "Implement FFT deconvolution and IR export",
+      "files": [
+        "DSP/IRKit.swift"
+      ],
+      "acceptance": [
+        "Deconvolved IR main peak at 0\u00b11 samples after alignment",
+        "Supports mono and 4\u2011ch FOA IR export"
+      ]
+    },
+    {
+      "id": "loopback-cal",
+      "title": "Loopback latency/gain calibration",
+      "files": [
+        "DSP/CalibrationKit.swift"
+      ],
+      "acceptance": [
+        "Latency reported in ms and samples",
+        "Per\u2011channel gain offsets reported within \u00b10.2 dB"
+      ]
+    }
+  ]
+}

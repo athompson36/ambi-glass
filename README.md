@@ -1,5 +1,10 @@
 # AmbiGlass — macOS/iPadOS (Liquid Glass)
 
+[![CI](https://github.com/athompson36/ambi-glass/actions/workflows/ci.yml/badge.svg)](https://github.com/athompson36/ambi-glass/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Swift](https://img.shields.io/badge/Swift-5.9+-orange.svg)](https://swift.org)
+[![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20iPadOS-lightgrey.svg)](https://www.apple.com)
+
 Professional ambisonic capture and processing app for 4‑channel Ambi‑Alice microphones. Features real-time A→B conversion, IR measurement, loopback calibration, and multi-format export.
 
 ## Features
@@ -150,3 +155,19 @@ See [LICENSE](LICENSE) file.
 ## Contributing
 
 See [CONTRIBUTING.md](DOCS/CONTRIBUTING.md) for development guidelines.
+
+We welcome contributions! Please feel free to submit a Pull Request.
+
+## Acknowledgments
+
+- Built with SwiftUI and Core Audio
+- Designed for Ambi-Alice 4-channel ambisonic microphones
+- Inspired by professional ambisonic recording workflows
+
+## Support
+
+- 📖 [Documentation](DOCS/)
+- 🐛 [Report a Bug](https://github.com/athompson36/ambi-glass/issues/new?template=bug_report.md)
+- 💡 [Request a Feature](https://github.com/athompson36/ambi-glass/issues/new?template=feature_request.md)
+- 📄 [Changelog](CHANGELOG.md)
+- 🔒 [Security Policy](SECURITY.md)

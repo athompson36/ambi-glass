@@ -1,0 +1,9 @@
+{
+  "name": "AmbiAlice_v1",
+  "matrix": [1.0, 0.0, 0.0, 0.0,
+             0.0, 1.0, 0.0, 0.0,
+             0.0, 0.0, 1.0, 0.0,
+             0.0, 0.0, 0.0, 1.0],
+  "ordering": "AmbiX_ACN_SN3D",
+  "notes": "Replace with measured A->B matrix for your Ambi-Alice geometry."
+}

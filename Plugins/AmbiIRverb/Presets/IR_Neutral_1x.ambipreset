@@ -1,0 +1,19 @@
+{
+  "name": "IR \u2014 Neutral 1x",
+  "mode": "IR",
+  "params": {
+    "dryWet": 0.3,
+    "rtScale": 1.0,
+    "width": 1.0,
+    "depth": 0.5,
+    "hpHz": 30.0,
+    "lpHz": 18000.0,
+    "diffusion": 0.35,
+    "modDepth": 0.1,
+    "modRate": 0.3,
+    "eqLoGain": 0.0,
+    "eqMidGain": 0.0,
+    "eqHiGain": 0.0
+  },
+  "irPath": "<choose at load>"
+}

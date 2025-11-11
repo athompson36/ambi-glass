@@ -1,0 +1,18 @@
+{
+  "name": "Spring \u2014 Spring Indie Slap",
+  "mode": "Spring",
+  "params": {
+    "dryWet": 0.25,
+    "rtScale": 0.9,
+    "width": 1.0,
+    "depth": 0.45,
+    "hpHz": 60.0,
+    "lpHz": 16000.0,
+    "diffusion": 0.25,
+    "modDepth": 0.12,
+    "modRate": 0.25,
+    "eqLoGain": -1.0,
+    "eqMidGain": 0.5,
+    "eqHiGain": 1.5
+  }
+}

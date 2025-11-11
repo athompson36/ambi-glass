@@ -1,0 +1,952 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49ED2F942EBE9C5B0000CC31 /* MCP_RULES.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F642EBE9C5B0000CC31 /* MCP_RULES.md */; };
+		49ED2F952EBE9C5B0000CC31 /* TEST_PLAN.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F6F2EBE9C5B0000CC31 /* TEST_PLAN.md */; };
+		49ED2F962EBE9C5B0000CC31 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F7C2EBE9C5B0000CC31 /* build.sh */; };
+		49ED2F972EBE9C5B0000CC31 /* DSP_NOTES.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F6B2EBE9C5B0000CC31 /* DSP_NOTES.md */; };
+		49ED2F982EBE9C5B0000CC31 /* XCODE_SETUP.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F712EBE9C5B0000CC31 /* XCODE_SETUP.md */; };
+		49ED2F992EBE9C5B0000CC31 /* tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F662EBE9C5B0000CC31 /* tasks.json */; };
+		49ED2F9A2EBE9C5B0000CC31 /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F6A2EBE9C5B0000CC31 /* CONTRIBUTING.md */; };
+		49ED2F9B2EBE9C5B0000CC31 /* MIC_PROFILES.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F6E2EBE9C5B0000CC31 /* MIC_PROFILES.md */; };
+		49ED2F9C2EBE9C5B0000CC31 /* ARCHITECTURE.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F682EBE9C5B0000CC31 /* ARCHITECTURE.md */; };
+		49ED2F9D2EBE9C5B0000CC31 /* FORMATS.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F6C2EBE9C5B0000CC31 /* FORMATS.md */; };
+		49ED2F9E2EBE9C5B0000CC31 /* test.sh in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F802EBE9C5B0000CC31 /* test.sh */; };
+		49ED2F9F2EBE9C5B0000CC31 /* CALIBRATION.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F692EBE9C5B0000CC31 /* CALIBRATION.md */; };
+		49ED2FA02EBE9C5B0000CC31 /* prompts.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F652EBE9C5B0000CC31 /* prompts.md */; };
+		49ED2FA12EBE9C5B0000CC31 /* AmbiAlice_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F792EBE9C5B0000CC31 /* AmbiAlice_v1.json */; };
+		49ED2FCC2EBE9C5B0000CC31 /* Behringer_ECM8000.cal in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */; };
+		49ED2FA22EBE9C5B0000CC31 /* UI_GUIDE.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F702EBE9C5B0000CC31 /* UI_GUIDE.md */; };
+		49ED2FA32EBE9C5B0000CC31 /* format.sh in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F7D2EBE9C5B0000CC31 /* format.sh */; };
+		49ED2FA42EBE9C5B0000CC31 /* IR_GUIDE.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F6D2EBE9C5B0000CC31 /* IR_GUIDE.md */; };
+		49ED2FA52EBE9C5B0000CC31 /* setup_xcode.sh in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F7F2EBE9C5B0000CC31 /* setup_xcode.sh */; };
+		49ED2FA62EBE9C5B0000CC31 /* prepare_xcode_project.sh in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F7E2EBE9C5B0000CC31 /* prepare_xcode_project.sh */; };
+		49ED2FA72EBE9C5B0000CC31 /* Profiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F772EBE9C5B0000CC31 /* Profiles.swift */; };
+		49ED2FA82EBE9C5B0000CC31 /* AmbisonicsDSPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F822EBE9C5B0000CC31 /* AmbisonicsDSPTests.swift */; };
+		49ED2FA92EBE9C5B0000CC31 /* TestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F862EBE9C5B0000CC31 /* TestRunner.swift */; };
+		49ED2FAA2EBE9C5B0000CC31 /* IRDeconvolutionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F852EBE9C5B0000CC31 /* IRDeconvolutionTests.swift */; };
+		49ED2FAB2EBE9C5B0000CC31 /* MeasureIRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F902EBE9C5B0000CC31 /* MeasureIRView.swift */; };
+		49ED2FAC2EBE9C5B0000CC31 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F912EBE9C5B0000CC31 /* RecordView.swift */; };
+		49ED2FAD2EBE9C5B0000CC31 /* RecorderEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F622EBE9C5B0000CC31 /* RecorderEngine.swift */; };
+		49ED2FAE2EBE9C5B0000CC31 /* CalibrationCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F8E2EBE9C5B0000CC31 /* CalibrationCurveView.swift */; };
+		49ED2FD02EBE9C5B0000CC31 /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FD12EBE9C5B0000CC31 /* WaveformView.swift */; };
+		49ED2FAF2EBE9C5B0000CC31 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F922EBE9C5B0000CC31 /* SettingsView.swift */; };
+		49ED2FB02EBE9C5B0000CC31 /* CalibrationCurveTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F832EBE9C5B0000CC31 /* CalibrationCurveTest.swift */; };
+		49ED2FB12EBE9C5B0000CC31 /* MicCalLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F762EBE9C5B0000CC31 /* MicCalLoader.swift */; };
+		49ED2FB22EBE9C5B0000CC31 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F892EBE9C5B0000CC31 /* ThemeManager.swift */; };
+		49ED2FB32EBE9C5B0000CC31 /* BatchTranscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F8D2EBE9C5B0000CC31 /* BatchTranscodeView.swift */; };
+		49ED2FB42EBE9C5B0000CC31 /* AudioDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F612EBE9C5B0000CC31 /* AudioDeviceManager.swift */; };
+		49ED2FBE2EBE9C5B0000CC31 /* RecordingFolderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FBF2EBE9C5B0000CC31 /* RecordingFolderManager.swift */; };
+		49ED2FC02EBE9C5B0000CC31 /* IRMeasurementEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC12EBE9C5B0000CC31 /* IRMeasurementEngine.swift */; };
+		49ED2FC22EBE9C5B0000CC31 /* DualMicRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC32EBE9C5B0000CC31 /* DualMicRecorder.swift */; };
+		49ED2FC42EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC52EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift */; };
+		49ED2FC62EBE9C5B0000CC31 /* CalibrationFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC72EBE9C5B0000CC31 /* CalibrationFileManager.swift */; };
+		49ED2FCA2EBE9C5B0000CC31 /* CalibrationMicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FCB2EBE9C5B0000CC31 /* CalibrationMicManager.swift */; };
+		49ED2FC82EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC92EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift */; };
+		49ED2FB52EBE9C5B0000CC31 /* LiquidGlassTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F882EBE9C5B0000CC31 /* LiquidGlassTheme.swift */; };
+		49ED2FB62EBE9C5B0000CC31 /* CalibrationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F742EBE9C5B0000CC31 /* CalibrationKit.swift */; };
+		49ED2FB72EBE9C5B0000CC31 /* Transcoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F8B2EBE9C5B0000CC31 /* Transcoder.swift */; };
+		49ED2FB82EBE9C5B0000CC31 /* AmbisonicsDSP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F732EBE9C5B0000CC31 /* AmbisonicsDSP.swift */; };
+		49ED2FB92EBE9C5B0000CC31 /* CalibrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F842EBE9C5B0000CC31 /* CalibrationTests.swift */; };
+		49ED2FBA2EBE9C5B0000CC31 /* IRKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F752EBE9C5B0000CC31 /* IRKit.swift */; };
+		49ED2FBB2EBE9C5B0000CC31 /* CalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F8F2EBE9C5B0000CC31 /* CalibrationView.swift */; };
+		49ED2FBC2EBE9C5B0000CC31 /* AmbiGlassApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F5E2EBE9C5B0000CC31 /* AmbiGlassApp.swift */; };
+		49ED2FBD2EBE9C5B0000CC31 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F5F2EBE9C5B0000CC31 /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		49ED2F422EBE999D0000CC31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49ED2F2A2EBE999C0000CC31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49ED2F312EBE999C0000CC31;
+			remoteInfo = AmbiStudio;
+		};
+		49ED2F4C2EBE999D0000CC31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49ED2F2A2EBE999C0000CC31 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49ED2F312EBE999C0000CC31;
+			remoteInfo = AmbiStudio;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		49ED2F322EBE999C0000CC31 /* AmbiStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmbiStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49ED2F412EBE999D0000CC31 /* AmbiStudioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmbiStudioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49ED2F4B2EBE999D0000CC31 /* AmbiStudioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmbiStudioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49ED2F5E2EBE9C5B0000CC31 /* AmbiGlassApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbiGlassApp.swift; sourceTree = "<group>"; };
+		49ED2F5F2EBE9C5B0000CC31 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		49ED2F612EBE9C5B0000CC31 /* AudioDeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceManager.swift; sourceTree = "<group>"; };
+		49ED2F622EBE9C5B0000CC31 /* RecorderEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderEngine.swift; sourceTree = "<group>"; };
+		49ED2FBF2EBE9C5B0000CC31 /* RecordingFolderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingFolderManager.swift; sourceTree = "<group>"; };
+		49ED2FC12EBE9C5B0000CC31 /* IRMeasurementEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRMeasurementEngine.swift; sourceTree = "<group>"; };
+		49ED2FC32EBE9C5B0000CC31 /* DualMicRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualMicRecorder.swift; sourceTree = "<group>"; };
+		49ED2FC52EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyResponseAnalyzer.swift; sourceTree = "<group>"; };
+		49ED2FC72EBE9C5B0000CC31 /* CalibrationFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationFileManager.swift; sourceTree = "<group>"; };
+		49ED2FCB2EBE9C5B0000CC31 /* CalibrationMicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationMicManager.swift; sourceTree = "<group>"; };
+		49ED2FC92EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbiAliceCalibrationView.swift; sourceTree = "<group>"; };
+		49ED2F642EBE9C5B0000CC31 /* MCP_RULES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = MCP_RULES.md; sourceTree = "<group>"; };
+		49ED2F652EBE9C5B0000CC31 /* prompts.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = prompts.md; sourceTree = "<group>"; };
+		49ED2F662EBE9C5B0000CC31 /* tasks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tasks.json; sourceTree = "<group>"; };
+		49ED2F682EBE9C5B0000CC31 /* ARCHITECTURE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ARCHITECTURE.md; sourceTree = "<group>"; };
+		49ED2F692EBE9C5B0000CC31 /* CALIBRATION.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CALIBRATION.md; sourceTree = "<group>"; };
+		49ED2F6A2EBE9C5B0000CC31 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		49ED2F6B2EBE9C5B0000CC31 /* DSP_NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DSP_NOTES.md; sourceTree = "<group>"; };
+		49ED2F6C2EBE9C5B0000CC31 /* FORMATS.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = FORMATS.md; sourceTree = "<group>"; };
+		49ED2F6D2EBE9C5B0000CC31 /* IR_GUIDE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = IR_GUIDE.md; sourceTree = "<group>"; };
+		49ED2F6E2EBE9C5B0000CC31 /* MIC_PROFILES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = MIC_PROFILES.md; sourceTree = "<group>"; };
+		49ED2F6F2EBE9C5B0000CC31 /* TEST_PLAN.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TEST_PLAN.md; sourceTree = "<group>"; };
+		49ED2F702EBE9C5B0000CC31 /* UI_GUIDE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = UI_GUIDE.md; sourceTree = "<group>"; };
+		49ED2F712EBE9C5B0000CC31 /* XCODE_SETUP.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = XCODE_SETUP.md; sourceTree = "<group>"; };
+		49ED2F732EBE9C5B0000CC31 /* AmbisonicsDSP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbisonicsDSP.swift; sourceTree = "<group>"; };
+		49ED2F742EBE9C5B0000CC31 /* CalibrationKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationKit.swift; sourceTree = "<group>"; };
+		49ED2F752EBE9C5B0000CC31 /* IRKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRKit.swift; sourceTree = "<group>"; };
+		49ED2F762EBE9C5B0000CC31 /* MicCalLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicCalLoader.swift; sourceTree = "<group>"; };
+		49ED2F772EBE9C5B0000CC31 /* Profiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profiles.swift; sourceTree = "<group>"; };
+		49ED2F792EBE9C5B0000CC31 /* AmbiAlice_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AmbiAlice_v1.json; sourceTree = "<group>"; };
+		49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */ = {isa = PBXFileReference; lastKnownFileType = text; path = Behringer_ECM8000.cal; sourceTree = "<group>"; };
+		49ED2F7C2EBE9C5B0000CC31 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
+		49ED2F7D2EBE9C5B0000CC31 /* format.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = format.sh; sourceTree = "<group>"; };
+		49ED2F7E2EBE9C5B0000CC31 /* prepare_xcode_project.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = prepare_xcode_project.sh; sourceTree = "<group>"; };
+		49ED2F7F2EBE9C5B0000CC31 /* setup_xcode.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = setup_xcode.sh; sourceTree = "<group>"; };
+		49ED2F802EBE9C5B0000CC31 /* test.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = test.sh; sourceTree = "<group>"; };
+		49ED2F822EBE9C5B0000CC31 /* AmbisonicsDSPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbisonicsDSPTests.swift; sourceTree = "<group>"; };
+		49ED2F832EBE9C5B0000CC31 /* CalibrationCurveTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationCurveTest.swift; sourceTree = "<group>"; };
+		49ED2F842EBE9C5B0000CC31 /* CalibrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationTests.swift; sourceTree = "<group>"; };
+		49ED2F852EBE9C5B0000CC31 /* IRDeconvolutionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRDeconvolutionTests.swift; sourceTree = "<group>"; };
+		49ED2F862EBE9C5B0000CC31 /* TestRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRunner.swift; sourceTree = "<group>"; };
+		49ED2F882EBE9C5B0000CC31 /* LiquidGlassTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiquidGlassTheme.swift; sourceTree = "<group>"; };
+		49ED2F892EBE9C5B0000CC31 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		49ED2F8B2EBE9C5B0000CC31 /* Transcoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transcoder.swift; sourceTree = "<group>"; };
+		49ED2F8D2EBE9C5B0000CC31 /* BatchTranscodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchTranscodeView.swift; sourceTree = "<group>"; };
+		49ED2F8E2EBE9C5B0000CC31 /* CalibrationCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationCurveView.swift; sourceTree = "<group>"; };
+		49ED2FD12EBE9C5B0000CC31 /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
+		49ED2F8F2EBE9C5B0000CC31 /* CalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationView.swift; sourceTree = "<group>"; };
+		49ED2F902EBE9C5B0000CC31 /* MeasureIRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureIRView.swift; sourceTree = "<group>"; };
+		49ED2F912EBE9C5B0000CC31 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		49ED2F922EBE9C5B0000CC31 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		49ED2F342EBE999C0000CC31 /* AmbiStudio */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AmbiStudio;
+			sourceTree = "<group>";
+		};
+		49ED2F442EBE999D0000CC31 /* AmbiStudioTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AmbiStudioTests;
+			sourceTree = "<group>";
+		};
+		49ED2F4E2EBE999D0000CC31 /* AmbiStudioUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AmbiStudioUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49ED2F2F2EBE999C0000CC31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49ED2F3E2EBE999D0000CC31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49ED2F482EBE999D0000CC31 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49ED2F292EBE999C0000CC31 = {
+			isa = PBXGroup;
+			children = (
+				49ED2F602EBE9C5B0000CC31 /* App */,
+				49ED2F632EBE9C5B0000CC31 /* Audio */,
+				49ED2F672EBE9C5B0000CC31 /* CURSOR */,
+				49ED2F722EBE9C5B0000CC31 /* DOCS */,
+				49ED2F782EBE9C5B0000CC31 /* DSP */,
+				49ED2F7B2EBE9C5B0000CC31 /* Resources */,
+				49ED2FCE2EBE9C5B0000CC31 /* CalibrationMics */,
+				49ED2F812EBE9C5B0000CC31 /* Scripts */,
+				49ED2F872EBE9C5B0000CC31 /* Tests */,
+				49ED2F8A2EBE9C5B0000CC31 /* Theme */,
+				49ED2F8C2EBE9C5B0000CC31 /* Transcode */,
+				49ED2F932EBE9C5B0000CC31 /* UI */,
+				49ED2F342EBE999C0000CC31 /* AmbiStudio */,
+				49ED2F442EBE999D0000CC31 /* AmbiStudioTests */,
+				49ED2F4E2EBE999D0000CC31 /* AmbiStudioUITests */,
+				49ED2F332EBE999C0000CC31 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		49ED2F332EBE999C0000CC31 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2F322EBE999C0000CC31 /* AmbiStudio.app */,
+				49ED2F412EBE999D0000CC31 /* AmbiStudioTests.xctest */,
+				49ED2F4B2EBE999D0000CC31 /* AmbiStudioUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49ED2F602EBE9C5B0000CC31 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2F5E2EBE9C5B0000CC31 /* AmbiGlassApp.swift */,
+				49ED2F5F2EBE9C5B0000CC31 /* ContentView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		49ED2F632EBE9C5B0000CC31 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2F612EBE9C5B0000CC31 /* AudioDeviceManager.swift */,
+				49ED2F622EBE9C5B0000CC31 /* RecorderEngine.swift */,
+				49ED2FBF2EBE9C5B0000CC31 /* RecordingFolderManager.swift */,
+				49ED2FC12EBE9C5B0000CC31 /* IRMeasurementEngine.swift */,
+				49ED2FC32EBE9C5B0000CC31 /* DualMicRecorder.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		49ED2F672EBE9C5B0000CC31 /* CURSOR */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2F642EBE9C5B0000CC31 /* MCP_RULES.md */,
+				49ED2F652EBE9C5B0000CC31 /* prompts.md */,
+				49ED2F662EBE9C5B0000CC31 /* tasks.json */,
+			);
+			path = CURSOR;
+			sourceTree = "<group>";
+		};
+		49ED2F722EBE9C5B0000CC31 /* DOCS */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2F682EBE9C5B0000CC31 /* ARCHITECTURE.md */,
+				49ED2F692EBE9C5B0000CC31 /* CALIBRATION.md */,
+				49ED2F6A2EBE9C5B0000CC31 /* CONTRIBUTING.md */,
+				49ED2F6B2EBE9C5B0000CC31 /* DSP_NOTES.md */,
+				49ED2F6C2EBE9C5B0000CC31 /* FORMATS.md */,
+				49ED2F6D2EBE9C5B0000CC31 /* IR_GUIDE.md */,
+				49ED2F6E2EBE9C5B0000CC31 /* MIC_PROFILES.md */,
+				49ED2F6F2EBE9C5B0000CC31 /* TEST_PLAN.md */,
+				49ED2F702EBE9C5B0000CC31 /* UI_GUIDE.md */,
+				49ED2F712EBE9C5B0000CC31 /* XCODE_SETUP.md */,
+			);
+			path = DOCS;
+			sourceTree = "<group>";
+		};
+		49ED2F782EBE9C5B0000CC31 /* DSP */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2F732EBE9C5B0000CC31 /* AmbisonicsDSP.swift */,
+				49ED2F742EBE9C5B0000CC31 /* CalibrationKit.swift */,
+				49ED2F752EBE9C5B0000CC31 /* IRKit.swift */,
+				49ED2F762EBE9C5B0000CC31 /* MicCalLoader.swift */,
+				49ED2F772EBE9C5B0000CC31 /* Profiles.swift */,
+				49ED2FC52EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift */,
+				49ED2FC72EBE9C5B0000CC31 /* CalibrationFileManager.swift */,
+				49ED2FCB2EBE9C5B0000CC31 /* CalibrationMicManager.swift */,
+			);
+			path = DSP;
+			sourceTree = "<group>";
+		};
+		49ED2F7A2EBE9C5B0000CC31 /* Presets */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2F792EBE9C5B0000CC31 /* AmbiAlice_v1.json */,
+			);
+			path = Presets;
+			sourceTree = "<group>";
+		};
+		49ED2FCE2EBE9C5B0000CC31 /* CalibrationMics */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */,
+			);
+			path = "Resources/CalibrationMics";
+			sourceTree = "<group>";
+		};
+		49ED2F7B2EBE9C5B0000CC31 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2F7A2EBE9C5B0000CC31 /* Presets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		49ED2F812EBE9C5B0000CC31 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2F7C2EBE9C5B0000CC31 /* build.sh */,
+				49ED2F7D2EBE9C5B0000CC31 /* format.sh */,
+				49ED2F7E2EBE9C5B0000CC31 /* prepare_xcode_project.sh */,
+				49ED2F7F2EBE9C5B0000CC31 /* setup_xcode.sh */,
+				49ED2F802EBE9C5B0000CC31 /* test.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		49ED2F872EBE9C5B0000CC31 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2F822EBE9C5B0000CC31 /* AmbisonicsDSPTests.swift */,
+				49ED2F832EBE9C5B0000CC31 /* CalibrationCurveTest.swift */,
+				49ED2F842EBE9C5B0000CC31 /* CalibrationTests.swift */,
+				49ED2F852EBE9C5B0000CC31 /* IRDeconvolutionTests.swift */,
+				49ED2F862EBE9C5B0000CC31 /* TestRunner.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		49ED2F8A2EBE9C5B0000CC31 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2F882EBE9C5B0000CC31 /* LiquidGlassTheme.swift */,
+				49ED2F892EBE9C5B0000CC31 /* ThemeManager.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		49ED2F8C2EBE9C5B0000CC31 /* Transcode */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2F8B2EBE9C5B0000CC31 /* Transcoder.swift */,
+			);
+			path = Transcode;
+			sourceTree = "<group>";
+		};
+		49ED2F932EBE9C5B0000CC31 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2F8D2EBE9C5B0000CC31 /* BatchTranscodeView.swift */,
+				49ED2F8E2EBE9C5B0000CC31 /* CalibrationCurveView.swift */,
+				49ED2F8F2EBE9C5B0000CC31 /* CalibrationView.swift */,
+				49ED2FD12EBE9C5B0000CC31 /* WaveformView.swift */,
+				49ED2F902EBE9C5B0000CC31 /* MeasureIRView.swift */,
+				49ED2F912EBE9C5B0000CC31 /* RecordView.swift */,
+				49ED2F922EBE9C5B0000CC31 /* SettingsView.swift */,
+				49ED2FC92EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49ED2F312EBE999C0000CC31 /* AmbiStudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49ED2F552EBE999D0000CC31 /* Build configuration list for PBXNativeTarget "AmbiStudio" */;
+			buildPhases = (
+				49ED2F2E2EBE999C0000CC31 /* Sources */,
+				49ED2F2F2EBE999C0000CC31 /* Frameworks */,
+				49ED2F302EBE999C0000CC31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				49ED2F342EBE999C0000CC31 /* AmbiStudio */,
+			);
+			name = AmbiStudio;
+			packageProductDependencies = (
+			);
+			productName = AmbiStudio;
+			productReference = 49ED2F322EBE999C0000CC31 /* AmbiStudio.app */;
+			productType = "com.apple.product-type.application";
+		};
+		49ED2F402EBE999D0000CC31 /* AmbiStudioTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49ED2F582EBE999D0000CC31 /* Build configuration list for PBXNativeTarget "AmbiStudioTests" */;
+			buildPhases = (
+				49ED2F3D2EBE999D0000CC31 /* Sources */,
+				49ED2F3E2EBE999D0000CC31 /* Frameworks */,
+				49ED2F3F2EBE999D0000CC31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49ED2F432EBE999D0000CC31 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				49ED2F442EBE999D0000CC31 /* AmbiStudioTests */,
+			);
+			name = AmbiStudioTests;
+			packageProductDependencies = (
+			);
+			productName = AmbiStudioTests;
+			productReference = 49ED2F412EBE999D0000CC31 /* AmbiStudioTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		49ED2F4A2EBE999D0000CC31 /* AmbiStudioUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49ED2F5B2EBE999D0000CC31 /* Build configuration list for PBXNativeTarget "AmbiStudioUITests" */;
+			buildPhases = (
+				49ED2F472EBE999D0000CC31 /* Sources */,
+				49ED2F482EBE999D0000CC31 /* Frameworks */,
+				49ED2F492EBE999D0000CC31 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49ED2F4D2EBE999D0000CC31 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				49ED2F4E2EBE999D0000CC31 /* AmbiStudioUITests */,
+			);
+			name = AmbiStudioUITests;
+			packageProductDependencies = (
+			);
+			productName = AmbiStudioUITests;
+			productReference = 49ED2F4B2EBE999D0000CC31 /* AmbiStudioUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49ED2F2A2EBE999C0000CC31 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2610;
+				LastUpgradeCheck = 2610;
+				TargetAttributes = {
+					49ED2F312EBE999C0000CC31 = {
+						CreatedOnToolsVersion = 26.1;
+					};
+					49ED2F402EBE999D0000CC31 = {
+						CreatedOnToolsVersion = 26.1;
+						TestTargetID = 49ED2F312EBE999C0000CC31;
+					};
+					49ED2F4A2EBE999D0000CC31 = {
+						CreatedOnToolsVersion = 26.1;
+						TestTargetID = 49ED2F312EBE999C0000CC31;
+					};
+				};
+			};
+			buildConfigurationList = 49ED2F2D2EBE999C0000CC31 /* Build configuration list for PBXProject "AmbiStudio" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 49ED2F292EBE999C0000CC31;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 49ED2F332EBE999C0000CC31 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49ED2F312EBE999C0000CC31 /* AmbiStudio */,
+				49ED2F402EBE999D0000CC31 /* AmbiStudioTests */,
+				49ED2F4A2EBE999D0000CC31 /* AmbiStudioUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49ED2F302EBE999C0000CC31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49ED2F942EBE9C5B0000CC31 /* MCP_RULES.md in Resources */,
+				49ED2F952EBE9C5B0000CC31 /* TEST_PLAN.md in Resources */,
+				49ED2F962EBE9C5B0000CC31 /* build.sh in Resources */,
+				49ED2F972EBE9C5B0000CC31 /* DSP_NOTES.md in Resources */,
+				49ED2F982EBE9C5B0000CC31 /* XCODE_SETUP.md in Resources */,
+				49ED2F992EBE9C5B0000CC31 /* tasks.json in Resources */,
+				49ED2F9A2EBE9C5B0000CC31 /* CONTRIBUTING.md in Resources */,
+				49ED2F9B2EBE9C5B0000CC31 /* MIC_PROFILES.md in Resources */,
+				49ED2F9C2EBE9C5B0000CC31 /* ARCHITECTURE.md in Resources */,
+				49ED2F9D2EBE9C5B0000CC31 /* FORMATS.md in Resources */,
+				49ED2F9E2EBE9C5B0000CC31 /* test.sh in Resources */,
+				49ED2F9F2EBE9C5B0000CC31 /* CALIBRATION.md in Resources */,
+				49ED2FA02EBE9C5B0000CC31 /* prompts.md in Resources */,
+				49ED2FA12EBE9C5B0000CC31 /* AmbiAlice_v1.json in Resources */,
+				49ED2FCC2EBE9C5B0000CC31 /* Behringer_ECM8000.cal in Resources */,
+				49ED2FA22EBE9C5B0000CC31 /* UI_GUIDE.md in Resources */,
+				49ED2FA32EBE9C5B0000CC31 /* format.sh in Resources */,
+				49ED2FA42EBE9C5B0000CC31 /* IR_GUIDE.md in Resources */,
+				49ED2FA52EBE9C5B0000CC31 /* setup_xcode.sh in Resources */,
+				49ED2FA62EBE9C5B0000CC31 /* prepare_xcode_project.sh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49ED2F3F2EBE999D0000CC31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49ED2F492EBE999D0000CC31 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49ED2F2E2EBE999C0000CC31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49ED2FA72EBE9C5B0000CC31 /* Profiles.swift in Sources */,
+				49ED2FAB2EBE9C5B0000CC31 /* MeasureIRView.swift in Sources */,
+				49ED2FAC2EBE9C5B0000CC31 /* RecordView.swift in Sources */,
+				49ED2FAD2EBE9C5B0000CC31 /* RecorderEngine.swift in Sources */,
+				49ED2FAE2EBE9C5B0000CC31 /* CalibrationCurveView.swift in Sources */,
+				49ED2FAF2EBE9C5B0000CC31 /* SettingsView.swift in Sources */,
+				49ED2FD02EBE9C5B0000CC31 /* WaveformView.swift in Sources */,
+				49ED2FB12EBE9C5B0000CC31 /* MicCalLoader.swift in Sources */,
+				49ED2FB22EBE9C5B0000CC31 /* ThemeManager.swift in Sources */,
+				49ED2FB32EBE9C5B0000CC31 /* BatchTranscodeView.swift in Sources */,
+				49ED2FB42EBE9C5B0000CC31 /* AudioDeviceManager.swift in Sources */,
+				49ED2FBE2EBE9C5B0000CC31 /* RecordingFolderManager.swift in Sources */,
+				49ED2FC02EBE9C5B0000CC31 /* IRMeasurementEngine.swift in Sources */,
+				49ED2FC22EBE9C5B0000CC31 /* DualMicRecorder.swift in Sources */,
+				49ED2FC42EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift in Sources */,
+				49ED2FC62EBE9C5B0000CC31 /* CalibrationFileManager.swift in Sources */,
+				49ED2FCA2EBE9C5B0000CC31 /* CalibrationMicManager.swift in Sources */,
+				49ED2FC82EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift in Sources */,
+				49ED2FB52EBE9C5B0000CC31 /* LiquidGlassTheme.swift in Sources */,
+				49ED2FB62EBE9C5B0000CC31 /* CalibrationKit.swift in Sources */,
+				49ED2FB72EBE9C5B0000CC31 /* Transcoder.swift in Sources */,
+				49ED2FB82EBE9C5B0000CC31 /* AmbisonicsDSP.swift in Sources */,
+				49ED2FBA2EBE9C5B0000CC31 /* IRKit.swift in Sources */,
+				49ED2FBB2EBE9C5B0000CC31 /* CalibrationView.swift in Sources */,
+				49ED2FBC2EBE9C5B0000CC31 /* AmbiGlassApp.swift in Sources */,
+				49ED2FBD2EBE9C5B0000CC31 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49ED2F3D2EBE999D0000CC31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49ED2FA82EBE9C5B0000CC31 /* AmbisonicsDSPTests.swift in Sources */,
+				49ED2FAA2EBE9C5B0000CC31 /* IRDeconvolutionTests.swift in Sources */,
+				49ED2FB92EBE9C5B0000CC31 /* CalibrationTests.swift in Sources */,
+				49ED2FB02EBE9C5B0000CC31 /* CalibrationCurveTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49ED2F472EBE999D0000CC31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49ED2F432EBE999D0000CC31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49ED2F312EBE999C0000CC31 /* AmbiStudio */;
+			targetProxy = 49ED2F422EBE999D0000CC31 /* PBXContainerItemProxy */;
+		};
+		49ED2F4D2EBE999D0000CC31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49ED2F312EBE999C0000CC31 /* AmbiStudio */;
+			targetProxy = 49ED2F4C2EBE999D0000CC31 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		49ED2F532EBE999D0000CC31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = FH4FKB9AUS;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		49ED2F542EBE999D0000CC31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = FH4FKB9AUS;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		49ED2F562EBE999D0000CC31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FH4FKB9AUS;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "fs-tech.AmbiStudio";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 26.1;
+			};
+			name = Debug;
+		};
+		49ED2F572EBE999D0000CC31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FH4FKB9AUS;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "fs-tech.AmbiStudio";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 26.1;
+			};
+			name = Release;
+		};
+		49ED2F592EBE999D0000CC31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FH4FKB9AUS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "fs-tech.AmbiStudioTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AmbiStudio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AmbiStudio";
+				XROS_DEPLOYMENT_TARGET = 26.1;
+			};
+			name = Debug;
+		};
+		49ED2F5A2EBE999D0000CC31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FH4FKB9AUS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "fs-tech.AmbiStudioTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AmbiStudio.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AmbiStudio";
+				XROS_DEPLOYMENT_TARGET = 26.1;
+			};
+			name = Release;
+		};
+		49ED2F5C2EBE999D0000CC31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FH4FKB9AUS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "fs-tech.AmbiStudioUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = AmbiStudio;
+				XROS_DEPLOYMENT_TARGET = 26.1;
+			};
+			name = Debug;
+		};
+		49ED2F5D2EBE999D0000CC31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FH4FKB9AUS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "fs-tech.AmbiStudioUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = AmbiStudio;
+				XROS_DEPLOYMENT_TARGET = 26.1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49ED2F2D2EBE999C0000CC31 /* Build configuration list for PBXProject "AmbiStudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49ED2F532EBE999D0000CC31 /* Debug */,
+				49ED2F542EBE999D0000CC31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49ED2F552EBE999D0000CC31 /* Build configuration list for PBXNativeTarget "AmbiStudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49ED2F562EBE999D0000CC31 /* Debug */,
+				49ED2F572EBE999D0000CC31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49ED2F582EBE999D0000CC31 /* Build configuration list for PBXNativeTarget "AmbiStudioTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49ED2F592EBE999D0000CC31 /* Debug */,
+				49ED2F5A2EBE999D0000CC31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49ED2F5B2EBE999D0000CC31 /* Build configuration list for PBXNativeTarget "AmbiStudioUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49ED2F5C2EBE999D0000CC31 /* Debug */,
+				49ED2F5D2EBE999D0000CC31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49ED2F2A2EBE999C0000CC31 /* Project object */;
+}

@@ -1,0 +1,28 @@
+{
+  "name": "AmbiGlass ConvoVerb",
+  "description": "Hybrid IR + algorithmic reverb (JUCE).",
+  "entrypoints": [
+    "CMakeLists.txt",
+    "Source/PluginProcessor.cpp",
+    "Source/PluginEditor.cpp"
+  ],
+  "style": {
+    "language": "C++",
+    "framework": "JUCE",
+    "cxx_standard": "c++20"
+  },
+  "tasks": [
+    {
+      "title": "Implement true\u2011stereo loader",
+      "path": "Source/ConvoEngine.cpp"
+    },
+    {
+      "title": "Finish PlateEngine FDN matrix",
+      "path": "Source/PlateEngine.cpp"
+    },
+    {
+      "title": "Wire Advanced drawer UI",
+      "path": "Source/PluginEditor.cpp"
+    }
+  ]
+}

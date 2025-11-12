@@ -8,124 +8,197 @@ struct BatchTranscodeView: View {
     @State private var errorText: String = ""
     @State private var successMessage: String = ""
     @State private var showingImporter = false
+    @State private var selectedFormat: ExportFormat? = nil
+    @State private var isTranscoding = false
+    
+    enum ExportFormat: String, CaseIterable {
+        case ambix = "AmbiX"
+        case fuma = "FuMa"
+        case stereo = "Stereo"
+        case fiveOne = "5.1"
+        case sevenOne = "7.1"
+        case binaural = "Binaural"
+    }
 
     var body: some View {
-        VStack(spacing: 16) {
-            GlassCard {
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("Batch Transcode").font(.title2).bold()
-                    Text("Import or drag and drop 4 mono WAV files from Ambi-Alice capsules (A-format).")
+        ScrollView {
+            VStack(spacing: 16) {
+                GlassCard {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Batch Transcode").font(.title2).bold()
+                        Text("Import or drag and drop 4 mono WAV files from Ambi-Alice capsules (A-format).")
                     
-                    // Naming Convention Info
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("File Naming Convention").font(.headline)
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("Files must be named with channel numbers: -1, -2, -3, -4").font(.caption).bold()
-                            Text("Example: capsule-1.wav, capsule-2.wav, capsule-3.wav, capsule-4.wav").font(.caption).opacity(0.8)
-                            Text("Channel mapping:").font(.caption).bold()
-                            Text("• -1 → Channel 1 (Capsule 1)").font(.caption).opacity(0.7)
-                            Text("• -2 → Channel 2 (Capsule 2)").font(.caption).opacity(0.7)
-                            Text("• -3 → Channel 3 (Capsule 3)").font(.caption).opacity(0.7)
-                            Text("• -4 → Channel 4 (Capsule 4)").font(.caption).opacity(0.7)
-                        }
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 12)
-                        .background(
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(Color.blue.opacity(0.1))
-                        )
-                    }
-                    
-                    Divider().opacity(0.4)
-                    
-                    // Import Button
-                    HStack {
-                        Button("Import Files") {
-                            showingImporter = true
-                        }
-                        .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
-                        
-                        Spacer()
-                    }
-                    
-                    Divider().opacity(0.4)
-                    
-                    // Drag and Drop Area
-                    DropArea(
-                        onComplete: { urls in
-                            validateAndQueue(urls)
-                        },
-                        onError: { errorMessage in
-                            errorText = errorMessage
-                            successMessage = ""
-                        }
-                    )
-                    
-                    // Success Message
-                    if !successMessage.isEmpty {
-                        HStack {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.green)
-                            Text(successMessage).font(.footnote).foregroundColor(.green)
-                        }
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 12)
-                        .background(
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(Color.green.opacity(0.1))
-                        )
-                    }
-                    
-                    // Error Message
-                    if !errorText.isEmpty {
-                        HStack {
-                            Image(systemName: "exclamationmark.triangle.fill")
-                                .foregroundColor(.red)
-                            Text(errorText).font(.footnote).foregroundColor(.red)
-                        }
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 12)
-                        .background(
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(Color.red.opacity(0.1))
-                        )
-                    }
-                    
-                    Divider().opacity(0.4)
-                    
-                    // Show imported files and waveforms
-                    if !transcoder.importedFiles.isEmpty {
-                        VStack(alignment: .leading, spacing: 12) {
-                            Text("Imported Files (sorted by channel):").font(.headline).bold()
-                            
-                            ForEach(Array(transcoder.importedFiles.enumerated()), id: \.offset) { index, url in
-                                WaveformView(audioURL: url, channelNumber: index + 1)
-                                    .padding(.vertical, 4)
-                                    .padding(.horizontal, 8)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .fill(Color.blue.opacity(0.1))
-                                    )
+                        // Naming Convention Info
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("File Naming Convention").font(.headline)
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Files must be named with channel numbers: -1, -2, -3, -4").font(.caption).bold()
+                                Text("Example: capsule-1.wav, capsule-2.wav, capsule-3.wav, capsule-4.wav").font(.caption).opacity(0.8)
+                                Text("Channel mapping:").font(.caption).bold()
+                                Text("• -1 → Channel 1 (Capsule 1)").font(.caption).opacity(0.7)
+                                Text("• -2 → Channel 2 (Capsule 2)").font(.caption).opacity(0.7)
+                                Text("• -3 → Channel 3 (Capsule 3)").font(.caption).opacity(0.7)
+                                Text("• -4 → Channel 4 (Capsule 4)").font(.caption).opacity(0.7)
                             }
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 12)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Color.blue.opacity(0.1))
+                            )
                         }
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 12)
-                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8))
-                    }
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Export Formats").bold()
+                        
+                        Divider().opacity(0.4)
+                        
+                        // Import Button
                         HStack {
-                            Button("AmbiX") { transcoder.exportAmbiX() }
-                            Button("FuMa") { transcoder.exportFuMa() }
-                            Button("Stereo") { transcoder.exportStereo() }
+                            Button("Import Files") {
+                                showingImporter = true
+                            }
+                            .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
+                            
+                            Spacer()
                         }
-                        .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
-                        HStack {
-                            Button("5.1") { transcoder.export5_1() }
-                            Button("7.1") { transcoder.export7_1() }
-                            Button("Binaural") { transcoder.exportBinaural() }
+                        
+                        Divider().opacity(0.4)
+                        
+                        // Drag and Drop Area
+                        DropArea(
+                            onComplete: { urls in
+                                validateAndQueue(urls)
+                            },
+                            onError: { errorMessage in
+                                errorText = errorMessage
+                                successMessage = ""
+                            }
+                        )
+                        
+                        // Success Message
+                        if !successMessage.isEmpty {
+                            HStack {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundColor(.green)
+                                Text(successMessage).font(.footnote).foregroundColor(.green)
+                            }
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 12)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Color.green.opacity(0.1))
+                            )
                         }
-                        .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
+                        
+                        // Error Message
+                        if !errorText.isEmpty {
+                            HStack {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .foregroundColor(.red)
+                                Text(errorText).font(.footnote).foregroundColor(.red)
+                            }
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 12)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8)
+                                    .fill(Color.red.opacity(0.1))
+                            )
+                        }
+                        
+                        Divider().opacity(0.4)
+                        
+                        // Show imported files and waveforms
+                        if !transcoder.importedFiles.isEmpty {
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text("Imported Files (sorted by channel):").font(.headline).bold()
+                                
+                                ForEach(Array(transcoder.importedFiles.enumerated()), id: \.offset) { index, url in
+                                    WaveformView(audioURL: url, channelNumber: index + 1)
+                                        .padding(.vertical, 4)
+                                        .padding(.horizontal, 8)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .fill(Color.blue.opacity(0.1))
+                                        )
+                                }
+                            }
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 12)
+                            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8))
+                        }
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Export Formats").bold()
+                            
+                            // Format selection buttons
+                            HStack {
+                                Button("AmbiX") { 
+                                    selectedFormat = .ambix
+                                }
+                                .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
+                                .opacity(selectedFormat == .ambix ? 1.0 : 0.6)
+                                
+                                Button("FuMa") { 
+                                    selectedFormat = .fuma
+                                }
+                                .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
+                                .opacity(selectedFormat == .fuma ? 1.0 : 0.6)
+                                
+                                Button("Stereo") { 
+                                    selectedFormat = .stereo
+                                }
+                                .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
+                                .opacity(selectedFormat == .stereo ? 1.0 : 0.6)
+                            }
+                            .disabled(transcoder.importedFiles.isEmpty || isTranscoding)
+                            
+                            HStack {
+                                Button("5.1") { 
+                                    selectedFormat = .fiveOne
+                                }
+                                .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
+                                .opacity(selectedFormat == .fiveOne ? 1.0 : 0.6)
+                                
+                                Button("7.1") { 
+                                    selectedFormat = .sevenOne
+                                }
+                                .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
+                                .opacity(selectedFormat == .sevenOne ? 1.0 : 0.6)
+                                
+                                Button("Binaural") { 
+                                    selectedFormat = .binaural
+                                }
+                                .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
+                                .opacity(selectedFormat == .binaural ? 1.0 : 0.6)
+                            }
+                            .disabled(transcoder.importedFiles.isEmpty || isTranscoding)
+                            
+                            // Transcode button
+                            if selectedFormat != nil {
+                                Button("Transcode to \(selectedFormat!.rawValue)") {
+                                    performTranscode()
+                                }
+                                .buttonStyle(NeonButtonStyle(highContrast: theme.highContrast))
+                                .disabled(transcoder.importedFiles.isEmpty || isTranscoding)
+                                .padding(.top, 8)
+                            }
+                            
+                                   // Show transcoding status with progress
+                                   if isTranscoding {
+                                       VStack(spacing: 8) {
+                                           ProgressIndicator(
+                                               progress: transcoder.transcodeProgress,
+                                               message: transcoder.transcodeStatus.isEmpty ? "Transcoding to \(selectedFormat?.rawValue ?? "selected format")..." : transcoder.transcodeStatus
+                                           )
+                                       }
+                                       .padding(.top, 8)
+                                   }
+                                   
+                                   // Show export status
+                                   if !transcoder.importStatus.isEmpty && !isTranscoding {
+                                       Text(transcoder.importStatus)
+                                           .font(.footnote)
+                                           .foregroundColor(.green)
+                                           .padding(.top, 4)
+                                   }
+                        }
                     }
                 }
             }
@@ -145,6 +218,7 @@ struct BatchTranscodeView: View {
         }
     }
 }
+
 
 struct DropArea: View {
     var onComplete: ([URL]) -> Void
@@ -187,14 +261,18 @@ private extension BatchTranscodeView {
     func validateAndQueue(_ urls: [URL]) {
         errorText = ""
         
-        // Start accessing security-scoped resources
+        // Access security-scoped resources temporarily for validation
+        var accessTokens: [Bool] = []
         for url in urls {
-            _ = url.startAccessingSecurityScopedResource()
+            let hasAccess = url.startAccessingSecurityScopedResource()
+            accessTokens.append(hasAccess)
         }
         defer {
-            // Stop accessing security-scoped resources
-            for url in urls {
-                url.stopAccessingSecurityScopedResource()
+            // Stop accessing security-scoped resources after validation
+            for (index, url) in urls.enumerated() {
+                if accessTokens[index] {
+                    url.stopAccessingSecurityScopedResource()
+                }
             }
         }
         
@@ -232,6 +310,51 @@ private extension BatchTranscodeView {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             if successMessage == "Successfully imported 4 WAV files! Files sorted by channel number." {
                 successMessage = ""
+            }
+        }
+    }
+    
+    func performTranscode() {
+        guard !transcoder.importedFiles.isEmpty else {
+            errorText = "Please import 4 WAV files first."
+            return
+        }
+        
+        guard let format = selectedFormat else {
+            errorText = "Please select an export format first."
+            return
+        }
+        
+        isTranscoding = true
+        errorText = ""
+        successMessage = ""
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            switch format {
+            case .ambix:
+                transcoder.exportAmbiX()
+            case .fuma:
+                transcoder.exportFuMa()
+            case .stereo:
+                transcoder.exportStereo()
+            case .fiveOne:
+                transcoder.export5_1()
+            case .sevenOne:
+                transcoder.export7_1()
+            case .binaural:
+                transcoder.exportBinaural()
+            }
+            
+            DispatchQueue.main.async {
+                isTranscoding = false
+                successMessage = "Successfully exported to \(format.rawValue) format!"
+                
+                // Clear success message after 3 seconds
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    if successMessage == "Successfully exported to \(format.rawValue) format!" {
+                        successMessage = ""
+                    }
+                }
             }
         }
     }

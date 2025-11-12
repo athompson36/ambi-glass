@@ -24,6 +24,16 @@ func runAllTests() {
     testCalibrationCurvePreview()
     print()
     
+    // RecorderEngine E2E Tests
+    print("🎙️  RecorderEngine E2E Tests:")
+    runAllRecorderEngineE2ETests()
+    print()
+    
+    // Audio Module Tests
+    print("🎙️  Audio Module Tests:")
+    runAllAudioModuleTests()
+    print()
+    
     print("✅ All tests completed successfully!")
 }
 

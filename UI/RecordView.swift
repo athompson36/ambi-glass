@@ -1,6 +1,9 @@
 import SwiftUI
 import AVFoundation
 import Combine
+#if os(iOS)
+import Foundation // For PhoneRelay and RemoteStatus
+#endif
 
 struct RecordView: View {
     @EnvironmentObject var devices: AudioDeviceManager
@@ -29,15 +32,24 @@ struct RecordView: View {
                             if isRecording {
                                 recorder.stop()
                                 isRecording = false
+                                #if os(iOS)
+                                PhoneRelay.shared.pushStatus(RemoteStatus(.idle, "Stopped"))
+                                #endif
                             } else {
                                 do {
                                     try recorder.start()
                                     isRecording = true
                                     errorMessage = ""
+                                    #if os(iOS)
+                                    PhoneRelay.shared.pushStatus(RemoteStatus(.recording, "Recording…"))
+                                    #endif
                                 } catch {
                                     errorMessage = "Failed to start recording: \(error.localizedDescription)"
                                     showError = true
                                     isRecording = false
+                                    #if os(iOS)
+                                    PhoneRelay.shared.pushStatus(RemoteStatus(.error, "Record error: \(error.localizedDescription)"))
+                                    #endif
                                 }
                             }
                         }
@@ -77,5 +89,38 @@ struct RecordView: View {
         }
         .padding()
         .onReceive(recorder.meterPublisher) { meters = $0 }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("RemoteMessage"))) { notification in
+            guard let message = notification.object as? RemoteMessage else { return }
+            switch message.cmd {
+            case .startRecording:
+                if !isRecording {
+                    do {
+                        try recorder.start()
+                        isRecording = true
+                        errorMessage = ""
+                        #if os(iOS)
+                        PhoneRelay.shared.pushStatus(RemoteStatus(.recording, "Recording…"))
+                        #endif
+                    } catch {
+                        errorMessage = "Failed to start recording: \(error.localizedDescription)"
+                        showError = true
+                        isRecording = false
+                        #if os(iOS)
+                        PhoneRelay.shared.pushStatus(RemoteStatus(.error, "Record error: \(error.localizedDescription)"))
+                        #endif
+                    }
+                }
+            case .stopRecording:
+                if isRecording {
+                    recorder.stop()
+                    isRecording = false
+                    #if os(iOS)
+                    PhoneRelay.shared.pushStatus(RemoteStatus(.idle, "Stopped"))
+                    #endif
+                }
+            default:
+                break
+            }
+        }
     }
 }

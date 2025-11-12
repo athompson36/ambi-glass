@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49CE7F702EC3EFF200A1FB940000CC32 /* PhoneRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE7F702EC3EFF200A1FB94 /* PhoneRelay.swift */; };
+		49CE7F712EC3F00100A1FB940000CC32 /* LANListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE7F712EC3F00100A1FB94 /* LANListener.swift */; };
+		49CE7F722EC3F00100A1FB940000CC32 /* RemoteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE7F722EC3F00100A1FB94 /* RemoteProtocol.swift */; };
+		49CE7F952EC3F37E00A1FB94 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CE7F942EC3F37E00A1FB94 /* WatchConnectivity.framework */; platformFilters = (ios, xros, ); };
+		49CE7F972EC3F38F00A1FB94 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CE7F962EC3F38F00A1FB94 /* Network.framework */; };
 		49ED2F942EBE9C5B0000CC31 /* MCP_RULES.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F642EBE9C5B0000CC31 /* MCP_RULES.md */; };
 		49ED2F952EBE9C5B0000CC31 /* TEST_PLAN.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F6F2EBE9C5B0000CC31 /* TEST_PLAN.md */; };
 		49ED2F962EBE9C5B0000CC31 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F7C2EBE9C5B0000CC31 /* build.sh */; };
@@ -21,7 +26,6 @@
 		49ED2F9F2EBE9C5B0000CC31 /* CALIBRATION.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F692EBE9C5B0000CC31 /* CALIBRATION.md */; };
 		49ED2FA02EBE9C5B0000CC31 /* prompts.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F652EBE9C5B0000CC31 /* prompts.md */; };
 		49ED2FA12EBE9C5B0000CC31 /* AmbiAlice_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F792EBE9C5B0000CC31 /* AmbiAlice_v1.json */; };
-		49ED2FCC2EBE9C5B0000CC31 /* Behringer_ECM8000.cal in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */; };
 		49ED2FA22EBE9C5B0000CC31 /* UI_GUIDE.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F702EBE9C5B0000CC31 /* UI_GUIDE.md */; };
 		49ED2FA32EBE9C5B0000CC31 /* format.sh in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F7D2EBE9C5B0000CC31 /* format.sh */; };
 		49ED2FA42EBE9C5B0000CC31 /* IR_GUIDE.md in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F6D2EBE9C5B0000CC31 /* IR_GUIDE.md */; };
@@ -29,26 +33,17 @@
 		49ED2FA62EBE9C5B0000CC31 /* prepare_xcode_project.sh in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2F7E2EBE9C5B0000CC31 /* prepare_xcode_project.sh */; };
 		49ED2FA72EBE9C5B0000CC31 /* Profiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F772EBE9C5B0000CC31 /* Profiles.swift */; };
 		49ED2FA82EBE9C5B0000CC31 /* AmbisonicsDSPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F822EBE9C5B0000CC31 /* AmbisonicsDSPTests.swift */; };
-		49ED2FA92EBE9C5B0000CC31 /* TestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F862EBE9C5B0000CC31 /* TestRunner.swift */; };
 		49ED2FAA2EBE9C5B0000CC31 /* IRDeconvolutionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F852EBE9C5B0000CC31 /* IRDeconvolutionTests.swift */; };
 		49ED2FAB2EBE9C5B0000CC31 /* MeasureIRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F902EBE9C5B0000CC31 /* MeasureIRView.swift */; };
 		49ED2FAC2EBE9C5B0000CC31 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F912EBE9C5B0000CC31 /* RecordView.swift */; };
 		49ED2FAD2EBE9C5B0000CC31 /* RecorderEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F622EBE9C5B0000CC31 /* RecorderEngine.swift */; };
 		49ED2FAE2EBE9C5B0000CC31 /* CalibrationCurveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F8E2EBE9C5B0000CC31 /* CalibrationCurveView.swift */; };
-		49ED2FD02EBE9C5B0000CC31 /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FD12EBE9C5B0000CC31 /* WaveformView.swift */; };
 		49ED2FAF2EBE9C5B0000CC31 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F922EBE9C5B0000CC31 /* SettingsView.swift */; };
 		49ED2FB02EBE9C5B0000CC31 /* CalibrationCurveTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F832EBE9C5B0000CC31 /* CalibrationCurveTest.swift */; };
 		49ED2FB12EBE9C5B0000CC31 /* MicCalLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F762EBE9C5B0000CC31 /* MicCalLoader.swift */; };
 		49ED2FB22EBE9C5B0000CC31 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F892EBE9C5B0000CC31 /* ThemeManager.swift */; };
 		49ED2FB32EBE9C5B0000CC31 /* BatchTranscodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F8D2EBE9C5B0000CC31 /* BatchTranscodeView.swift */; };
 		49ED2FB42EBE9C5B0000CC31 /* AudioDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F612EBE9C5B0000CC31 /* AudioDeviceManager.swift */; };
-		49ED2FBE2EBE9C5B0000CC31 /* RecordingFolderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FBF2EBE9C5B0000CC31 /* RecordingFolderManager.swift */; };
-		49ED2FC02EBE9C5B0000CC31 /* IRMeasurementEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC12EBE9C5B0000CC31 /* IRMeasurementEngine.swift */; };
-		49ED2FC22EBE9C5B0000CC31 /* DualMicRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC32EBE9C5B0000CC31 /* DualMicRecorder.swift */; };
-		49ED2FC42EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC52EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift */; };
-		49ED2FC62EBE9C5B0000CC31 /* CalibrationFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC72EBE9C5B0000CC31 /* CalibrationFileManager.swift */; };
-		49ED2FCA2EBE9C5B0000CC31 /* CalibrationMicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FCB2EBE9C5B0000CC31 /* CalibrationMicManager.swift */; };
-		49ED2FC82EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC92EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift */; };
 		49ED2FB52EBE9C5B0000CC31 /* LiquidGlassTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F882EBE9C5B0000CC31 /* LiquidGlassTheme.swift */; };
 		49ED2FB62EBE9C5B0000CC31 /* CalibrationKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F742EBE9C5B0000CC31 /* CalibrationKit.swift */; };
 		49ED2FB72EBE9C5B0000CC31 /* Transcoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F8B2EBE9C5B0000CC31 /* Transcoder.swift */; };
@@ -58,6 +53,15 @@
 		49ED2FBB2EBE9C5B0000CC31 /* CalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F8F2EBE9C5B0000CC31 /* CalibrationView.swift */; };
 		49ED2FBC2EBE9C5B0000CC31 /* AmbiGlassApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F5E2EBE9C5B0000CC31 /* AmbiGlassApp.swift */; };
 		49ED2FBD2EBE9C5B0000CC31 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2F5F2EBE9C5B0000CC31 /* ContentView.swift */; };
+		49ED2FBE2EBE9C5B0000CC31 /* RecordingFolderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FBF2EBE9C5B0000CC31 /* RecordingFolderManager.swift */; };
+		49ED2FC02EBE9C5B0000CC31 /* IRMeasurementEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC12EBE9C5B0000CC31 /* IRMeasurementEngine.swift */; };
+		49ED2FC22EBE9C5B0000CC31 /* DualMicRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC32EBE9C5B0000CC31 /* DualMicRecorder.swift */; };
+		49ED2FC42EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC52EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift */; };
+		49ED2FC62EBE9C5B0000CC31 /* CalibrationFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC72EBE9C5B0000CC31 /* CalibrationFileManager.swift */; };
+		49ED2FC82EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FC92EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift */; };
+		49ED2FCA2EBE9C5B0000CC31 /* CalibrationMicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FCB2EBE9C5B0000CC31 /* CalibrationMicManager.swift */; };
+		49ED2FCC2EBE9C5B0000CC31 /* Behringer_ECM8000.cal in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */; };
+		49ED2FD02EBE9C5B0000CC31 /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FD12EBE9C5B0000CC31 /* WaveformView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +82,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49CE7F702EC3EFF200A1FB94 /* PhoneRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneRelay.swift; sourceTree = "<group>"; };
+		49CE7F712EC3F00100A1FB94 /* LANListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LANListener.swift; sourceTree = "<group>"; };
+		49CE7F722EC3F00100A1FB94 /* RemoteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteProtocol.swift; sourceTree = "<group>"; };
+		49CE7F732EC3F01800A1FB94 /* WatchRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchRemote.swift; sourceTree = "<group>"; };
+		49CE7F742EC3F01800A1FB94 /* WatchTransportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTransportView.swift; sourceTree = "<group>"; };
+		49CE7F942EC3F37E00A1FB94 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		49CE7F962EC3F38F00A1FB94 /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.5.sdk/System/Library/Frameworks/Network.framework; sourceTree = DEVELOPER_DIR; };
 		49ED2F322EBE999C0000CC31 /* AmbiStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AmbiStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49ED2F412EBE999D0000CC31 /* AmbiStudioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmbiStudioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49ED2F4B2EBE999D0000CC31 /* AmbiStudioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmbiStudioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,13 +96,6 @@
 		49ED2F5F2EBE9C5B0000CC31 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		49ED2F612EBE9C5B0000CC31 /* AudioDeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceManager.swift; sourceTree = "<group>"; };
 		49ED2F622EBE9C5B0000CC31 /* RecorderEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderEngine.swift; sourceTree = "<group>"; };
-		49ED2FBF2EBE9C5B0000CC31 /* RecordingFolderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingFolderManager.swift; sourceTree = "<group>"; };
-		49ED2FC12EBE9C5B0000CC31 /* IRMeasurementEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRMeasurementEngine.swift; sourceTree = "<group>"; };
-		49ED2FC32EBE9C5B0000CC31 /* DualMicRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualMicRecorder.swift; sourceTree = "<group>"; };
-		49ED2FC52EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyResponseAnalyzer.swift; sourceTree = "<group>"; };
-		49ED2FC72EBE9C5B0000CC31 /* CalibrationFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationFileManager.swift; sourceTree = "<group>"; };
-		49ED2FCB2EBE9C5B0000CC31 /* CalibrationMicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationMicManager.swift; sourceTree = "<group>"; };
-		49ED2FC92EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbiAliceCalibrationView.swift; sourceTree = "<group>"; };
 		49ED2F642EBE9C5B0000CC31 /* MCP_RULES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = MCP_RULES.md; sourceTree = "<group>"; };
 		49ED2F652EBE9C5B0000CC31 /* prompts.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = prompts.md; sourceTree = "<group>"; };
 		49ED2F662EBE9C5B0000CC31 /* tasks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tasks.json; sourceTree = "<group>"; };
@@ -111,7 +115,6 @@
 		49ED2F762EBE9C5B0000CC31 /* MicCalLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicCalLoader.swift; sourceTree = "<group>"; };
 		49ED2F772EBE9C5B0000CC31 /* Profiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profiles.swift; sourceTree = "<group>"; };
 		49ED2F792EBE9C5B0000CC31 /* AmbiAlice_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AmbiAlice_v1.json; sourceTree = "<group>"; };
-		49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */ = {isa = PBXFileReference; lastKnownFileType = text; path = Behringer_ECM8000.cal; sourceTree = "<group>"; };
 		49ED2F7C2EBE9C5B0000CC31 /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		49ED2F7D2EBE9C5B0000CC31 /* format.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = format.sh; sourceTree = "<group>"; };
 		49ED2F7E2EBE9C5B0000CC31 /* prepare_xcode_project.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = prepare_xcode_project.sh; sourceTree = "<group>"; };
@@ -127,11 +130,19 @@
 		49ED2F8B2EBE9C5B0000CC31 /* Transcoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transcoder.swift; sourceTree = "<group>"; };
 		49ED2F8D2EBE9C5B0000CC31 /* BatchTranscodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchTranscodeView.swift; sourceTree = "<group>"; };
 		49ED2F8E2EBE9C5B0000CC31 /* CalibrationCurveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationCurveView.swift; sourceTree = "<group>"; };
-		49ED2FD12EBE9C5B0000CC31 /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
 		49ED2F8F2EBE9C5B0000CC31 /* CalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationView.swift; sourceTree = "<group>"; };
 		49ED2F902EBE9C5B0000CC31 /* MeasureIRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureIRView.swift; sourceTree = "<group>"; };
 		49ED2F912EBE9C5B0000CC31 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		49ED2F922EBE9C5B0000CC31 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		49ED2FBF2EBE9C5B0000CC31 /* RecordingFolderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingFolderManager.swift; sourceTree = "<group>"; };
+		49ED2FC12EBE9C5B0000CC31 /* IRMeasurementEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRMeasurementEngine.swift; sourceTree = "<group>"; };
+		49ED2FC32EBE9C5B0000CC31 /* DualMicRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DualMicRecorder.swift; sourceTree = "<group>"; };
+		49ED2FC52EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyResponseAnalyzer.swift; sourceTree = "<group>"; };
+		49ED2FC72EBE9C5B0000CC31 /* CalibrationFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationFileManager.swift; sourceTree = "<group>"; };
+		49ED2FC92EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbiAliceCalibrationView.swift; sourceTree = "<group>"; };
+		49ED2FCB2EBE9C5B0000CC31 /* CalibrationMicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationMicManager.swift; sourceTree = "<group>"; };
+		49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */ = {isa = PBXFileReference; lastKnownFileType = text; path = Behringer_ECM8000.cal; sourceTree = "<group>"; };
+		49ED2FD12EBE9C5B0000CC31 /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -157,6 +168,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49CE7F972EC3F38F00A1FB94 /* Network.framework in Frameworks */,
+				49CE7F952EC3F37E00A1FB94 /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,16 +190,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49CE7F6D2EC3EF1400A1FB94 /* iOS-Relay */ = {
+			isa = PBXGroup;
+			children = (
+				49CE7F702EC3EFF200A1FB94 /* PhoneRelay.swift */,
+			);
+			path = "iOS-Relay";
+			sourceTree = "<group>";
+		};
+		49CE7F6E2EC3EF3400A1FB94 /* SharedRemote */ = {
+			isa = PBXGroup;
+			children = (
+				49CE7F712EC3F00100A1FB94 /* LANListener.swift */,
+				49CE7F722EC3F00100A1FB94 /* RemoteProtocol.swift */,
+			);
+			path = SharedRemote;
+			sourceTree = "<group>";
+		};
+		49CE7F6F2EC3EF4C00A1FB94 /* watchOS-App */ = {
+			isa = PBXGroup;
+			children = (
+				49CE7F732EC3F01800A1FB94 /* WatchRemote.swift */,
+				49CE7F742EC3F01800A1FB94 /* WatchTransportView.swift */,
+			);
+			path = "watchOS-App";
+			sourceTree = "<group>";
+		};
+		49CE7F932EC3F37E00A1FB94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49CE7F962EC3F38F00A1FB94 /* Network.framework */,
+				49CE7F942EC3F37E00A1FB94 /* WatchConnectivity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		49ED2F292EBE999C0000CC31 = {
 			isa = PBXGroup;
 			children = (
+				49CE7F6F2EC3EF4C00A1FB94 /* watchOS-App */,
+				49CE7F6E2EC3EF3400A1FB94 /* SharedRemote */,
+				49CE7F6D2EC3EF1400A1FB94 /* iOS-Relay */,
 				49ED2F602EBE9C5B0000CC31 /* App */,
 				49ED2F632EBE9C5B0000CC31 /* Audio */,
 				49ED2F672EBE9C5B0000CC31 /* CURSOR */,
 				49ED2F722EBE9C5B0000CC31 /* DOCS */,
 				49ED2F782EBE9C5B0000CC31 /* DSP */,
 				49ED2F7B2EBE9C5B0000CC31 /* Resources */,
-				49ED2FCE2EBE9C5B0000CC31 /* CalibrationMics */,
+				49ED2FCE2EBE9C5B0000CC31 /* Resources/CalibrationMics */,
 				49ED2F812EBE9C5B0000CC31 /* Scripts */,
 				49ED2F872EBE9C5B0000CC31 /* Tests */,
 				49ED2F8A2EBE9C5B0000CC31 /* Theme */,
@@ -195,6 +246,7 @@
 				49ED2F342EBE999C0000CC31 /* AmbiStudio */,
 				49ED2F442EBE999D0000CC31 /* AmbiStudioTests */,
 				49ED2F4E2EBE999D0000CC31 /* AmbiStudioUITests */,
+				49CE7F932EC3F37E00A1FB94 /* Frameworks */,
 				49ED2F332EBE999C0000CC31 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -280,14 +332,6 @@
 			path = Presets;
 			sourceTree = "<group>";
 		};
-		49ED2FCE2EBE9C5B0000CC31 /* CalibrationMics */ = {
-			isa = PBXGroup;
-			children = (
-				49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */,
-			);
-			path = "Resources/CalibrationMics";
-			sourceTree = "<group>";
-		};
 		49ED2F7B2EBE9C5B0000CC31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +394,14 @@
 				49ED2FC92EBE9C5B0000CC31 /* AmbiAliceCalibrationView.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		49ED2FCE2EBE9C5B0000CC31 /* Resources/CalibrationMics */ = {
+			isa = PBXGroup;
+			children = (
+				49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */,
+			);
+			path = Resources/CalibrationMics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -542,6 +594,9 @@
 				49ED2FBB2EBE9C5B0000CC31 /* CalibrationView.swift in Sources */,
 				49ED2FBC2EBE9C5B0000CC31 /* AmbiGlassApp.swift in Sources */,
 				49ED2FBD2EBE9C5B0000CC31 /* ContentView.swift in Sources */,
+				49CE7F722EC3F00100A1FB940000CC32 /* RemoteProtocol.swift in Sources */,
+				49CE7F712EC3F00100A1FB940000CC32 /* LANListener.swift in Sources */,
+				49CE7F702EC3EFF200A1FB940000CC32 /* PhoneRelay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,6 +774,9 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "AmbiGlass needs network access to relay remote control commands from your Apple Watch to your iPad or Mac.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "AmbiGlass needs microphone access to record ambisonic audio from your Ambi-Alice microphone array.";
+				INFOPLIST_KEY_NSAudioCaptureUsageDescription = "AmbiGlass needs audio capture access for ambisonic recording and impulse response measurements.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -729,10 +787,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "fs-tech.AmbiStudio";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -774,6 +832,9 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "AmbiGlass needs network access to relay remote control commands from your Apple Watch to your iPad or Mac.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "AmbiGlass needs microphone access to record ambisonic audio from your Ambi-Alice microphone array.";
+				INFOPLIST_KEY_NSAudioCaptureUsageDescription = "AmbiGlass needs audio capture access for ambisonic recording and impulse response measurements.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -784,10 +845,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "fs-tech.AmbiStudio";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -813,8 +874,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FH4FKB9AUS;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
-				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "fs-tech.AmbiStudioTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -839,8 +900,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FH4FKB9AUS;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
-				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "fs-tech.AmbiStudioTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -864,8 +925,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FH4FKB9AUS;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
-				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "fs-tech.AmbiStudioUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -889,8 +950,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FH4FKB9AUS;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
-				MACOSX_DEPLOYMENT_TARGET = 26.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "fs-tech.AmbiStudioUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";

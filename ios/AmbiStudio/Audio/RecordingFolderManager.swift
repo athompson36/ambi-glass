@@ -15,16 +15,26 @@ final class RecordingFolderManager: ObservableObject {
     }
     
     func setFolder(_ url: URL) {
-        // Request access to the folder
+        #if os(macOS)
+        // Request access to the folder (macOS only)
         _ = url.startAccessingSecurityScopedResource()
         
-        // Store bookmark for persistent access
+        // Store bookmark for persistent access (macOS security-scoped)
         if let bookmark = try? url.bookmarkData(options: [.withSecurityScope], includingResourceValuesForKeys: nil, relativeTo: nil) {
             userDefaults.set(bookmark, forKey: folderKey)
             recordingFolder = url
             folderName = url.lastPathComponent
             userDefaults.synchronize()
         }
+        #else
+        // iOS: Store bookmark without security scope
+        if let bookmark = try? url.bookmarkData(options: [], includingResourceValuesForKeys: nil, relativeTo: nil) {
+            userDefaults.set(bookmark, forKey: folderKey)
+            recordingFolder = url
+            folderName = url.lastPathComponent
+            userDefaults.synchronize()
+        }
+        #endif
     }
     
     func getFolder() -> URL {
@@ -35,12 +45,20 @@ final class RecordingFolderManager: ObservableObject {
         // Try to restore from bookmark
         if let bookmarkData = userDefaults.data(forKey: folderKey) {
             var isStale = false
+            #if os(macOS)
             if let url = try? URL(resolvingBookmarkData: bookmarkData, options: [.withSecurityScope], relativeTo: nil, bookmarkDataIsStale: &isStale) {
                 _ = url.startAccessingSecurityScopedResource()
                 recordingFolder = url
                 folderName = url.lastPathComponent
                 return url
             }
+            #else
+            if let url = try? URL(resolvingBookmarkData: bookmarkData, options: [], relativeTo: nil, bookmarkDataIsStale: &isStale) {
+                recordingFolder = url
+                folderName = url.lastPathComponent
+                return url
+            }
+            #endif
         }
         
         // Fallback to Documents directory
@@ -60,12 +78,20 @@ final class RecordingFolderManager: ObservableObject {
     private func loadFolder() {
         if let bookmarkData = userDefaults.data(forKey: folderKey) {
             var isStale = false
+            #if os(macOS)
             if let url = try? URL(resolvingBookmarkData: bookmarkData, options: [.withSecurityScope], relativeTo: nil, bookmarkDataIsStale: &isStale) {
                 _ = url.startAccessingSecurityScopedResource()
                 recordingFolder = url
                 folderName = url.lastPathComponent
                 return
             }
+            #else
+            if let url = try? URL(resolvingBookmarkData: bookmarkData, options: [], relativeTo: nil, bookmarkDataIsStale: &isStale) {
+                recordingFolder = url
+                folderName = url.lastPathComponent
+                return
+            }
+            #endif
         }
         
         // Fallback to default folder

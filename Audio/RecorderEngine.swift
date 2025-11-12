@@ -75,7 +75,7 @@ final class RecorderEngine: ObservableObject {
         for ch in 0..<4 {
             let src = buffer.floatChannelData![min(Int(ch), Int(buffer.format.channelCount)-1)]
             let dst = out.floatChannelData![Int(ch)]
-            dst.assign(from: src, count: Int(frameCount))
+            dst.update(from: src, count: Int(frameCount))
         }
         return out
     }

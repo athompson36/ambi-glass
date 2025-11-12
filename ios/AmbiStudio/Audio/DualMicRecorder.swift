@@ -184,7 +184,7 @@ final class DualMicRecorder: ObservableObject {
             let srcCh = min(max(0, inCh), availableChannels - 1)
             let src = buffer.floatChannelData![srcCh]
             let dst = out.floatChannelData![outCh]
-            dst.assign(from: src, count: Int(frameCount))
+            dst.update(from: src, count: Int(frameCount))
         }
         
         return out

@@ -1,0 +1,30 @@
+{
+  "tasks": [
+    {
+      "id": "watch-transport",
+      "title": "WatchConnectivity transport + status",
+      "files": [
+        "SharedRemote/RemoteProtocol.swift",
+        "iOS-Relay/PhoneRelay.swift",
+        "watchOS-App/WatchRemote.swift",
+        "watchOS-App/WatchTransportView.swift"
+      ],
+      "acceptance": [
+        "Rec/Stop and IR/Abort commands reach host",
+        "Status text updates on watch within 1s"
+      ]
+    },
+    {
+      "id": "lan-relay",
+      "title": "LAN relay for iPad/Mac host",
+      "files": [
+        "SharedRemote/LANListener.swift",
+        "iOS-Relay/PhoneRelay.swift"
+      ],
+      "acceptance": [
+        "iPhone forwards commands to iPad/Mac over LAN",
+        "Host triggers start/stop without UI focus"
+      ]
+    }
+  ]
+}

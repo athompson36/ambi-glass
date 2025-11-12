@@ -58,6 +58,29 @@ struct MeasureIRView: View {
                         ProgressIndicator(progress: 0.7, message: "Generating sweep and deconvolving...")
                     }
                     
+                    // Listen for remote IR commands
+                    .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("StartIRMeasurement"))) { _ in
+                        if !isMeasuring {
+                            isMeasuring = true
+                            exportStatus = "Measuring..."
+                            DispatchQueue.global(qos: .userInitiated).async {
+                                let irs = irkit.runSweep(seconds: sweepSeconds, f0: f0, f1: f1)
+                                DispatchQueue.main.async {
+                                    measuredIRs = irs
+                                    isMeasuring = false
+                                    exportStatus = "IR measured: \(irs.first?.count ?? 0) samples"
+                                }
+                            }
+                        }
+                    }
+                    .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("StopIRMeasurement"))) { _ in
+                        if isMeasuring {
+                            // Cancel measurement if possible
+                            isMeasuring = false
+                            exportStatus = "IR measurement aborted"
+                        }
+                    }
+                    
                     if measuredIRs != nil {
                         Divider().opacity(0.4)
                         Text("Export IR").bold()

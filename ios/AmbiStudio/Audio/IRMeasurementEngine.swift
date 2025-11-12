@@ -42,7 +42,7 @@ final class IRMeasurementEngine: ObservableObject {
         let sweepBuffer = AVAudioPCMBuffer(pcmFormat: fmt, frameCapacity: AVAudioFrameCount(sweep.count))!
         sweepBuffer.frameLength = AVAudioFrameCount(sweep.count)
         sweep.withUnsafeBufferPointer { ptr in
-            sweepBuffer.floatChannelData![0].assign(from: ptr.baseAddress!, count: sweep.count)
+            sweepBuffer.floatChannelData![0].update(from: ptr.baseAddress!, count: sweep.count)
         }
         
         // Prepare recording
@@ -160,7 +160,7 @@ final class IRMeasurementEngine: ObservableObject {
             let srcCh = min(max(0, inCh), availableChannels - 1)
             let src = buffer.floatChannelData![srcCh]
             let dst = out.floatChannelData![outCh]
-            dst.assign(from: src, count: Int(frameCount))
+            dst.update(from: src, count: Int(frameCount))
         }
         
         return out
@@ -189,7 +189,7 @@ final class IRMeasurementEngine: ObservableObject {
                 let frameCount = Int(buffer.frameLength)
                 let src = buffer.floatChannelData![ch]
                 let dst = outputBuffer.floatChannelData![0]
-                dst.advanced(by: frameOffset).assign(from: src, count: frameCount)
+                dst.advanced(by: frameOffset).update(from: src, count: frameCount)
                 frameOffset += frameCount
             }
             

@@ -10,6 +10,7 @@ struct RecordView: View {
 
     @State private var isRecording = false
     @State private var meters: [CGFloat] = [0,0,0,0]
+    @State private var meterUpdateCount = 0
 
     var body: some View {
         ScrollView {
@@ -173,6 +174,62 @@ struct RecordView: View {
                     }
                     .padding(.vertical, 8)
 
+                    // Sample Rate Display and Control
+                    HStack {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Sample Rate").font(.caption).opacity(0.7)
+                            HStack {
+                                Text("\(Int(recorder.currentSampleRate)) Hz")
+                                    .font(.system(.body, design: .monospaced))
+                                    .foregroundColor(.cyan)
+                                
+                                Picker("", selection: $recorder.requestedSampleRate) {
+                                    Text("44100").tag(44100.0)
+                                    Text("48000").tag(48000.0)
+                                    Text("88200").tag(88200.0)
+                                    Text("96000").tag(96000.0)
+                                    Text("192000").tag(192000.0)
+                                }
+                                .pickerStyle(.menu)
+                                .frame(width: 100)
+                                .onChange(of: recorder.requestedSampleRate) { newRate in
+                                    // Restart monitoring with new rate
+                                    if recorder.selectedInputChannels.count == 4 {
+                                        recorder.stopMonitoring()
+                                        Task { @MainActor in
+                                            try? await Task.sleep(nanoseconds: 200_000_000)
+                                            recorder.startMonitoring()
+                                        }
+                                    }
+                                }
+                            }
+                            if abs(recorder.currentSampleRate - recorder.requestedSampleRate) > 1.0 {
+                                Text("⚠️ Requested: \(Int(recorder.requestedSampleRate)) Hz")
+                                    .font(.caption2)
+                                    .foregroundColor(.orange)
+                            }
+                        }
+                        
+                        Spacer()
+                        
+                        // Microphone Permission Status (macOS)
+                        #if os(macOS)
+                        if !recorder.hasMicrophonePermission {
+                            VStack(alignment: .trailing, spacing: 4) {
+                                Text("⚠️ Microphone Permission Required")
+                                    .font(.caption)
+                                    .foregroundColor(.orange)
+                                Button("Request Permission") {
+                                    recorder.requestMicrophonePermission()
+                                }
+                                .buttonStyle(.bordered)
+                                .controlSize(.small)
+                            }
+                        }
+                        #endif
+                    }
+                    .padding(.vertical, 4)
+                    
                     // Record button and Safety toggle at bottom
                     HStack {
                         Button(isRecording ? "Stop" : "Record") {
@@ -209,6 +266,20 @@ struct RecordView: View {
             }
         }
         .padding()
-        .onReceive(recorder.meterPublisher) { meters = $0 }
+        .onReceive(recorder.meterPublisher) { newMeters in
+            meters = newMeters
+            // Debug: Log meter updates to verify UI is receiving data
+            meterUpdateCount += 1
+            if meterUpdateCount <= 10 {
+                print("RecordView: Received meter update #\(meterUpdateCount): \(newMeters.map { String(format: "%.4f", $0) })")
+            }
+        }
+        .onAppear {
+            // Check microphone permission
+            recorder.checkMicrophonePermission()
+            // Debug: Verify meter publisher is set up and start monitoring
+            print("RecordView: onAppear - starting monitoring")
+            recorder.startMonitoring()
+        }
     }
 }

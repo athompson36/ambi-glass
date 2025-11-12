@@ -3,20 +3,24 @@ import AVFoundation
 import Combine
 
 final class AudioDeviceManager: ObservableObject {
-    struct Device: Identifiable {
+    struct Device: Identifiable, Equatable {
         let id: String
         let name: String
         let inputChannels: [InputChannel]
         let outputChannels: [OutputChannel]
+        
+        static func == (lhs: Device, rhs: Device) -> Bool {
+            lhs.id == rhs.id
+        }
     }
     
-    struct InputChannel: Identifiable {
+    struct InputChannel: Identifiable, Equatable {
         let id: Int
         let name: String
         let channelNumber: Int
     }
     
-    struct OutputChannel: Identifiable {
+    struct OutputChannel: Identifiable, Equatable {
         let id: Int
         let name: String
         let channelNumber: Int

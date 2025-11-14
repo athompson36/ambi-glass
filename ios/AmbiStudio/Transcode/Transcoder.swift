@@ -364,7 +364,7 @@ final class Transcoder: ObservableObject {
         guard minFrames > 0 else {
             throw NSError(domain: "Transcoder", code: -2, userInfo: [NSLocalizedDescriptionKey:"Empty files"])
         }
-        let base = directory ?? RecordingFolderManager.shared.getFolder()
+        let base = directory ?? ProjectManager.shared.getTranscodedFolder()
         let outURL = base.appendingPathComponent("AmbiX_\(Int(Date().timeIntervalSince1970)).wav")
         let writer = try WavFloat32Writer(url: outURL, sampleRate: sr, channels: 4)
 
@@ -652,7 +652,7 @@ final class Transcoder: ObservableObject {
         }
         print("Non-blocking export: minFrames = \(minFrames), sampleRate = \(sr)")
 
-        let base = directory ?? RecordingFolderManager.shared.getFolder()
+        let base = directory ?? ProjectManager.shared.getTranscodedFolder()
         let outURL = base.appendingPathComponent("AmbiX_\(Int(Date().timeIntervalSince1970)).wav")
 
         // Calculate final file size upfront
@@ -1293,7 +1293,7 @@ final class Transcoder: ObservableObject {
                 self.transcodeProgress = 0.8
             }
             
-            let base = directory ?? RecordingFolderManager.shared.getFolder()
+            let base = directory ?? ProjectManager.shared.getTranscodedFolder()
             let out = base.appendingPathComponent("FuMa_\(Int(Date().timeIntervalSince1970)).wav")
             try write4Ch(url: out, buffer: fuma)
             
@@ -1356,7 +1356,7 @@ final class Transcoder: ObservableObject {
                 self.transcodeProgress = 0.8
             }
             
-            let base = directory ?? RecordingFolderManager.shared.getFolder()
+            let base = directory ?? ProjectManager.shared.getTranscodedFolder()
             let out = base.appendingPathComponent("Stereo_\(Int(Date().timeIntervalSince1970)).wav")
             try write2Ch(url: out, buffer: stereo)
             
@@ -1431,7 +1431,7 @@ final class Transcoder: ObservableObject {
                 self.transcodeProgress = 0.8
             }
             
-            let base = directory ?? RecordingFolderManager.shared.getFolder()
+            let base = directory ?? ProjectManager.shared.getTranscodedFolder()
             let out = base.appendingPathComponent("5.1_\(Int(Date().timeIntervalSince1970)).wav")
             try write6Ch(url: out, buffer: out51)
             
@@ -1510,7 +1510,7 @@ final class Transcoder: ObservableObject {
                 self.transcodeProgress = 0.8
             }
             
-            let base = directory ?? RecordingFolderManager.shared.getFolder()
+            let base = directory ?? ProjectManager.shared.getTranscodedFolder()
             let out = base.appendingPathComponent("7.1_\(Int(Date().timeIntervalSince1970)).wav")
             try write8Ch(url: out, buffer: out71)
             

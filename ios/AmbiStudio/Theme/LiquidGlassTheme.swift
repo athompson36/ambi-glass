@@ -59,14 +59,51 @@ struct ThemedButton: View {
 struct MeterBar: View {
     @EnvironmentObject var theme: ThemeManager
     var value: CGFloat // 0...1
+    var peakHold: CGFloat = 0 // Peak hold value
     var body: some View {
         GeometryReader { geo in
             let h = max(2, value * geo.size.height)
-            VStack {
-                Spacer()
-                RoundedRectangle(cornerRadius: 3).fill(LinearGradient(colors: theme.highContrast ? [.cyan, .blue] : [.cyan, .purple], startPoint: .top, endPoint: .bottom))
-                    .frame(height: h)
-                    .shadow(color: theme.highContrast ? .cyan.opacity(0.8) : .purple.opacity(0.5), radius: theme.highContrast ? 8 : 6, x: 0, y: 0)
+            let peakHoldH = peakHold > 0 ? max(2, peakHold * geo.size.height) : 0
+            
+            ZStack(alignment: .bottom) {
+                // dB graduations - positioned from bottom (0dB at top, -40dB at bottom)
+                ForEach([-40, -30, -20, -12, -6, -3, 0], id: \.self) { db in
+                    // Convert dB to linear (0-1 range where 0dB = 1.0, -40dB ≈ 0.01)
+                    let linearValue = pow(10.0, Double(db) / 20.0)
+                    // Position from bottom: 0dB at top (height), -40dB at bottom (0)
+                    let yPosition = CGFloat(linearValue) * geo.size.height
+                    
+                    HStack(spacing: 0) {
+                        Rectangle()
+                            .fill(Color.white.opacity(0.2))
+                            .frame(width: geo.size.width - 25, height: 1)
+                        Text("\(db)")
+                            .font(.system(size: 7))
+                            .foregroundColor(.white.opacity(0.5))
+                            .frame(width: 20, alignment: .leading)
+                    }
+                    .offset(y: -yPosition) // Offset from bottom (negative = up)
+                }
+                
+                // Main meter bar
+                VStack {
+                    Spacer()
+                    RoundedRectangle(cornerRadius: 3).fill(LinearGradient(colors: theme.highContrast ? [.cyan, .blue] : [.cyan, .purple], startPoint: .top, endPoint: .bottom))
+                        .frame(height: h)
+                        .shadow(color: theme.highContrast ? .cyan.opacity(0.8) : .purple.opacity(0.5), radius: theme.highContrast ? 8 : 6, x: 0, y: 0)
+                }
+                
+                // Peak hold indicator
+                if peakHold > 0 {
+                    VStack {
+                        Spacer()
+                        RoundedRectangle(cornerRadius: 1)
+                            .fill(Color.yellow.opacity(0.8))
+                            .frame(width: geo.size.width, height: 2)
+                            .offset(y: -peakHoldH)
+                            .shadow(color: .yellow.opacity(0.6), radius: 2)
+                    }
+                }
             }
         }
     }

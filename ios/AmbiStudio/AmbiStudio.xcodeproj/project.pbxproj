@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2309E37E2193468FAA7A805E /* AVAudioEngineRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309E37E2193468FAA7A805D /* AVAudioEngineRecorder.swift */; };
+		498B5B642EC5DBA600CE5F6D /* COREAUDIO_FIX_SUMMARY.md in Resources */ = {isa = PBXBuildFile; fileRef = 498B5B632EC5DBA600CE5F6D /* COREAUDIO_FIX_SUMMARY.md */; };
+		498B5B662EC5E04800CE5F6D /* BUFFER_EXTRACTION_FIX_SUMMARY.md in Resources */ = {isa = PBXBuildFile; fileRef = 498B5B652EC5E04800CE5F6D /* BUFFER_EXTRACTION_FIX_SUMMARY.md */; };
+		498B5B682EC5E15100CE5F6D /* STREAM_CONFIG_ENHANCED_FIX.md in Resources */ = {isa = PBXBuildFile; fileRef = 498B5B672EC5E15100CE5F6D /* STREAM_CONFIG_ENHANCED_FIX.md */; };
+		498B5B6A2EC5E27300CE5F6D /* PATTERN_DETECTION_FIX.md in Resources */ = {isa = PBXBuildFile; fileRef = 498B5B692EC5E27300CE5F6D /* PATTERN_DETECTION_FIX.md */; };
+		498B5B6C2EC5EA7B00CE5F6D /* COREAUDIO_28CH_ISSUE_SUMMARY.md in Resources */ = {isa = PBXBuildFile; fileRef = 498B5B6B2EC5EA7B00CE5F6D /* COREAUDIO_28CH_ISSUE_SUMMARY.md */; };
 		49CE7F702EC3EFF200A1FB940000CC32 /* PhoneRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE7F702EC3EFF200A1FB94 /* PhoneRelay.swift */; };
 		49CE7F712EC3F00100A1FB940000CC32 /* LANListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE7F712EC3F00100A1FB94 /* LANListener.swift */; };
 		49CE7F722EC3F00100A1FB940000CC32 /* RemoteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE7F722EC3F00100A1FB94 /* RemoteProtocol.swift */; };
@@ -62,6 +68,11 @@
 		49ED2FCA2EBE9C5B0000CC31 /* CalibrationMicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FCB2EBE9C5B0000CC31 /* CalibrationMicManager.swift */; };
 		49ED2FCC2EBE9C5B0000CC31 /* Behringer_ECM8000.cal in Resources */ = {isa = PBXBuildFile; fileRef = 49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */; };
 		49ED2FD02EBE9C5B0000CC31 /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FD12EBE9C5B0000CC31 /* WaveformView.swift */; };
+		49ED2FD22EBE9C5B0000CC31 /* LiveWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FD32EBE9C5B0000CC31 /* LiveWaveformView.swift */; };
+		49ED2FD42EBE9C5B0000CC31 /* ProjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FD52EBE9C5B0000CC31 /* ProjectManager.swift */; };
+		49ED2FD62EBE9C5B0000CC31 /* CenteredTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ED2FD72EBE9C5B0000CC31 /* CenteredTextField.swift */; };
+		95D8DE10D89D454196CAE38D /* AudioRecorderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D8DE10D89D454196CAE38C /* AudioRecorderProtocol.swift */; };
+		C37F799B65CD434194CC48FD /* CoreAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37F799B65CD434194CC48FC /* CoreAudioRecorder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +93,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2309E37E2193468FAA7A805D /* AVAudioEngineRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAudioEngineRecorder.swift; sourceTree = "<group>"; };
+		498B5B632EC5DBA600CE5F6D /* COREAUDIO_FIX_SUMMARY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = COREAUDIO_FIX_SUMMARY.md; sourceTree = "<group>"; };
+		498B5B652EC5E04800CE5F6D /* BUFFER_EXTRACTION_FIX_SUMMARY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = BUFFER_EXTRACTION_FIX_SUMMARY.md; sourceTree = "<group>"; };
+		498B5B672EC5E15100CE5F6D /* STREAM_CONFIG_ENHANCED_FIX.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = STREAM_CONFIG_ENHANCED_FIX.md; sourceTree = "<group>"; };
+		498B5B692EC5E27300CE5F6D /* PATTERN_DETECTION_FIX.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PATTERN_DETECTION_FIX.md; sourceTree = "<group>"; };
+		498B5B6B2EC5EA7B00CE5F6D /* COREAUDIO_28CH_ISSUE_SUMMARY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = COREAUDIO_28CH_ISSUE_SUMMARY.md; sourceTree = "<group>"; };
 		49CE7F702EC3EFF200A1FB94 /* PhoneRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneRelay.swift; sourceTree = "<group>"; };
 		49CE7F712EC3F00100A1FB94 /* LANListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LANListener.swift; sourceTree = "<group>"; };
 		49CE7F722EC3F00100A1FB94 /* RemoteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteProtocol.swift; sourceTree = "<group>"; };
@@ -143,6 +160,11 @@
 		49ED2FCB2EBE9C5B0000CC31 /* CalibrationMicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationMicManager.swift; sourceTree = "<group>"; };
 		49ED2FCD2EBE9C5B0000CC31 /* Behringer_ECM8000.cal */ = {isa = PBXFileReference; lastKnownFileType = text; path = Behringer_ECM8000.cal; sourceTree = "<group>"; };
 		49ED2FD12EBE9C5B0000CC31 /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
+		49ED2FD32EBE9C5B0000CC31 /* LiveWaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveWaveformView.swift; sourceTree = "<group>"; };
+		49ED2FD52EBE9C5B0000CC31 /* ProjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManager.swift; sourceTree = "<group>"; };
+		49ED2FD72EBE9C5B0000CC31 /* CenteredTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredTextField.swift; sourceTree = "<group>"; };
+		95D8DE10D89D454196CAE38C /* AudioRecorderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderProtocol.swift; sourceTree = "<group>"; };
+		C37F799B65CD434194CC48FC /* CoreAudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAudioRecorder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -248,6 +270,7 @@
 				49ED2F4E2EBE999D0000CC31 /* AmbiStudioUITests */,
 				49CE7F932EC3F37E00A1FB94 /* Frameworks */,
 				49ED2F332EBE999C0000CC31 /* Products */,
+				498B5B632EC5DBA600CE5F6D /* COREAUDIO_FIX_SUMMARY.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,9 +298,17 @@
 			children = (
 				49ED2F612EBE9C5B0000CC31 /* AudioDeviceManager.swift */,
 				49ED2F622EBE9C5B0000CC31 /* RecorderEngine.swift */,
+				95D8DE10D89D454196CAE38C /* AudioRecorderProtocol.swift */,
+				C37F799B65CD434194CC48FC /* CoreAudioRecorder.swift */,
+				2309E37E2193468FAA7A805D /* AVAudioEngineRecorder.swift */,
 				49ED2FBF2EBE9C5B0000CC31 /* RecordingFolderManager.swift */,
+				49ED2FD52EBE9C5B0000CC31 /* ProjectManager.swift */,
 				49ED2FC12EBE9C5B0000CC31 /* IRMeasurementEngine.swift */,
 				49ED2FC32EBE9C5B0000CC31 /* DualMicRecorder.swift */,
+				498B5B652EC5E04800CE5F6D /* BUFFER_EXTRACTION_FIX_SUMMARY.md */,
+				498B5B672EC5E15100CE5F6D /* STREAM_CONFIG_ENHANCED_FIX.md */,
+				498B5B692EC5E27300CE5F6D /* PATTERN_DETECTION_FIX.md */,
+				498B5B6B2EC5EA7B00CE5F6D /* COREAUDIO_28CH_ISSUE_SUMMARY.md */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -388,6 +419,8 @@
 				49ED2F8E2EBE9C5B0000CC31 /* CalibrationCurveView.swift */,
 				49ED2F8F2EBE9C5B0000CC31 /* CalibrationView.swift */,
 				49ED2FD12EBE9C5B0000CC31 /* WaveformView.swift */,
+				49ED2FD32EBE9C5B0000CC31 /* LiveWaveformView.swift */,
+				49ED2FD72EBE9C5B0000CC31 /* CenteredTextField.swift */,
 				49ED2F902EBE9C5B0000CC31 /* MeasureIRView.swift */,
 				49ED2F912EBE9C5B0000CC31 /* RecordView.swift */,
 				49ED2F922EBE9C5B0000CC31 /* SettingsView.swift */,
@@ -524,19 +557,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				498B5B682EC5E15100CE5F6D /* STREAM_CONFIG_ENHANCED_FIX.md in Resources */,
 				49ED2F942EBE9C5B0000CC31 /* MCP_RULES.md in Resources */,
 				49ED2F952EBE9C5B0000CC31 /* TEST_PLAN.md in Resources */,
 				49ED2F962EBE9C5B0000CC31 /* build.sh in Resources */,
 				49ED2F972EBE9C5B0000CC31 /* DSP_NOTES.md in Resources */,
+				498B5B6A2EC5E27300CE5F6D /* PATTERN_DETECTION_FIX.md in Resources */,
 				49ED2F982EBE9C5B0000CC31 /* XCODE_SETUP.md in Resources */,
 				49ED2F992EBE9C5B0000CC31 /* tasks.json in Resources */,
+				498B5B642EC5DBA600CE5F6D /* COREAUDIO_FIX_SUMMARY.md in Resources */,
 				49ED2F9A2EBE9C5B0000CC31 /* CONTRIBUTING.md in Resources */,
 				49ED2F9B2EBE9C5B0000CC31 /* MIC_PROFILES.md in Resources */,
+				498B5B662EC5E04800CE5F6D /* BUFFER_EXTRACTION_FIX_SUMMARY.md in Resources */,
 				49ED2F9C2EBE9C5B0000CC31 /* ARCHITECTURE.md in Resources */,
 				49ED2F9D2EBE9C5B0000CC31 /* FORMATS.md in Resources */,
 				49ED2F9E2EBE9C5B0000CC31 /* test.sh in Resources */,
 				49ED2F9F2EBE9C5B0000CC31 /* CALIBRATION.md in Resources */,
 				49ED2FA02EBE9C5B0000CC31 /* prompts.md in Resources */,
+				498B5B6C2EC5EA7B00CE5F6D /* COREAUDIO_28CH_ISSUE_SUMMARY.md in Resources */,
 				49ED2FA12EBE9C5B0000CC31 /* AmbiAlice_v1.json in Resources */,
 				49ED2FCC2EBE9C5B0000CC31 /* Behringer_ECM8000.cal in Resources */,
 				49ED2FA22EBE9C5B0000CC31 /* UI_GUIDE.md in Resources */,
@@ -572,14 +610,20 @@
 				49ED2FAB2EBE9C5B0000CC31 /* MeasureIRView.swift in Sources */,
 				49ED2FAC2EBE9C5B0000CC31 /* RecordView.swift in Sources */,
 				49ED2FAD2EBE9C5B0000CC31 /* RecorderEngine.swift in Sources */,
+				95D8DE10D89D454196CAE38D /* AudioRecorderProtocol.swift in Sources */,
+				C37F799B65CD434194CC48FD /* CoreAudioRecorder.swift in Sources */,
+				2309E37E2193468FAA7A805E /* AVAudioEngineRecorder.swift in Sources */,
 				49ED2FAE2EBE9C5B0000CC31 /* CalibrationCurveView.swift in Sources */,
 				49ED2FAF2EBE9C5B0000CC31 /* SettingsView.swift in Sources */,
 				49ED2FD02EBE9C5B0000CC31 /* WaveformView.swift in Sources */,
+				49ED2FD22EBE9C5B0000CC31 /* LiveWaveformView.swift in Sources */,
+				49ED2FD62EBE9C5B0000CC31 /* CenteredTextField.swift in Sources */,
 				49ED2FB12EBE9C5B0000CC31 /* MicCalLoader.swift in Sources */,
 				49ED2FB22EBE9C5B0000CC31 /* ThemeManager.swift in Sources */,
 				49ED2FB32EBE9C5B0000CC31 /* BatchTranscodeView.swift in Sources */,
 				49ED2FB42EBE9C5B0000CC31 /* AudioDeviceManager.swift in Sources */,
 				49ED2FBE2EBE9C5B0000CC31 /* RecordingFolderManager.swift in Sources */,
+				49ED2FD42EBE9C5B0000CC31 /* ProjectManager.swift in Sources */,
 				49ED2FC02EBE9C5B0000CC31 /* IRMeasurementEngine.swift in Sources */,
 				49ED2FC22EBE9C5B0000CC31 /* DualMicRecorder.swift in Sources */,
 				49ED2FC42EBE9C5B0000CC31 /* FrequencyResponseAnalyzer.swift in Sources */,
@@ -771,12 +815,12 @@
 				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
 				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
 				ENABLE_RESOURCE_ACCESS_USB = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSAudioCaptureUsageDescription = "AmbiGlass needs audio capture access for ambisonic recording and impulse response measurements.";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "AmbiGlass needs network access to relay remote control commands from your Apple Watch to your iPad or Mac.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "AmbiGlass needs microphone access to record ambisonic audio from your Ambi-Alice microphone array.";
-				INFOPLIST_KEY_NSAudioCaptureUsageDescription = "AmbiGlass needs audio capture access for ambisonic recording and impulse response measurements.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -829,12 +873,12 @@
 				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
 				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
 				ENABLE_RESOURCE_ACCESS_USB = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSAudioCaptureUsageDescription = "AmbiGlass needs audio capture access for ambisonic recording and impulse response measurements.";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "AmbiGlass needs network access to relay remote control commands from your Apple Watch to your iPad or Mac.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "AmbiGlass needs microphone access to record ambisonic audio from your Ambi-Alice microphone array.";
-				INFOPLIST_KEY_NSAudioCaptureUsageDescription = "AmbiGlass needs audio capture access for ambisonic recording and impulse response measurements.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

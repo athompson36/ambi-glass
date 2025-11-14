@@ -143,7 +143,7 @@ struct MeasureIRView: View {
     private func exportMono() {
         guard let irs = measuredIRs, !irs.isEmpty else { return }
         isExporting = true
-        let folder = RecordingFolderManager.shared.getFolder()
+        let folder = ProjectManager.shared.getIRsFolder()
         let url = folder.appendingPathComponent("IR_Mono_\(Int(Date().timeIntervalSince1970)).wav")
         DispatchQueue.global(qos: .userInitiated).async {
             do {
@@ -164,7 +164,7 @@ struct MeasureIRView: View {
     private func exportStereo() {
         guard let irs = measuredIRs, irs.count >= 2 else { exportStatus = "Need 2+ channels"; return }
         isExporting = true
-        let folder = RecordingFolderManager.shared.getFolder()
+        let folder = ProjectManager.shared.getIRsFolder()
         let url = folder.appendingPathComponent("IR_Stereo_\(Int(Date().timeIntervalSince1970)).wav")
         DispatchQueue.global(qos: .userInitiated).async {
             do {
@@ -185,7 +185,7 @@ struct MeasureIRView: View {
     private func exportTrueStereo() {
         guard let irs = measuredIRs, irs.count >= 4 else { exportStatus = "Need 4 channels"; return }
         isExporting = true
-        let folder = RecordingFolderManager.shared.getFolder()
+        let folder = ProjectManager.shared.getIRsFolder()
         let url = folder.appendingPathComponent("IR_TrueStereo_\(Int(Date().timeIntervalSince1970)).wav")
         DispatchQueue.global(qos: .userInitiated).async {
             do {
@@ -206,7 +206,7 @@ struct MeasureIRView: View {
     private func exportFOA() {
         guard let irs = measuredIRs, irs.count >= 4 else { exportStatus = "Need 4 channels"; return }
         isExporting = true
-        let folder = RecordingFolderManager.shared.getFolder()
+        let folder = ProjectManager.shared.getIRsFolder()
         let url = folder.appendingPathComponent("IR_FOA_\(Int(Date().timeIntervalSince1970)).wav")
         DispatchQueue.global(qos: .userInitiated).async {
             do {

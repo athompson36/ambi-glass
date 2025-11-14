@@ -65,8 +65,11 @@ final class AmbisonicsDSP: ObservableObject {
     }
 
     func processAtoB(aBuffer: AVAudioPCMBuffer) -> AVAudioPCMBuffer {
-        let fmt = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: aBuffer.format.sampleRate, channels: 4, interleaved: false)!
-        let out = AVAudioPCMBuffer(pcmFormat: fmt, frameCapacity: aBuffer.frameCapacity)!
+        guard let fmt = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: aBuffer.format.sampleRate, channels: 4, interleaved: false),
+              let out = AVAudioPCMBuffer(pcmFormat: fmt, frameCapacity: aBuffer.frameCapacity) else {
+            print("❌ AmbisonicsDSP: Failed to create output buffer, returning input unchanged")
+            return aBuffer
+        }
         out.frameLength = aBuffer.frameLength
         let n = Int(aBuffer.frameLength)
 
